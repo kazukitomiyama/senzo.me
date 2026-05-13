@@ -805,7 +805,18 @@ async function go(){
   try{
     const res=await fetch("/.netlify/functions/divine",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({myoji:myoji})});
     const data=await res.json();
-    const r=JSON.parse(data.content.filter(b=>b.type==="text").map(b=>b.text).join("").replace(/```json|```/g,"").trim());
+    if(!res.ok || data.error){
+      throw new Error(data.error||("HTTP "+res.status));
+    }
+    if(!data.content||!Array.isArray(data.content)){
+      throw new Error("APIレスポンス形式が不正");
+    }
+    const rawText=data.content.filter(b=>b.type==="text").map(b=>b.text).join("").replace(/```json|```/g,"").trim();
+    let r;
+    try{r=JSON.parse(rawText);}catch(parseErr){
+      console.error("JSON parse error:",parseErr,"Raw:",rawText);
+      throw new Error("AI応答の解析に失敗");
+    }
 
     // プログレス完了演出
     clearInterval(tick);
@@ -819,8 +830,9 @@ async function go(){
   }catch(e){
     clearInterval(tick);
     clearInterval(quoteTick);
+    console.error("鑑定エラー:",e);
     show("s-input");
-    document.getElementById("err").textContent="鑑定に失敗しました。もう一度お試しください。";
+    document.getElementById("err").textContent="鑑定失敗："+(e.message||"不明なエラー");
     document.getElementById("err").classList.remove("hidden");
   }
 }
