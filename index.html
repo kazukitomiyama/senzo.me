@@ -18,7 +18,10 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+
 .wrap{max-width:420px;margin:0 auto;padding:20px 16px 80px;position:relative;z-index:1}
+
+/* INPUT */
 .input-screen{animation:fadeUp .7s ease}
 .hero{padding:48px 0 32px;text-align:center}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:8px;color:var(--gold);margin-bottom:18px;opacity:.7}
@@ -43,6 +46,8 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
 .examples{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
 .example{background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:7px 16px;font-size:14px;font-weight:800;cursor:pointer;letter-spacing:2px;color:var(--sub);transition:all .2s}
 .example:hover{border-color:rgba(255,255,255,.3);color:#fff}
+
+/* LOADING */
 .loading-screen{text-align:center;padding:120px 20px;animation:fadeIn .4s ease}
 .load-name{font-family:'Zen Old Mincho',serif;font-size:44px;font-weight:900;letter-spacing:10px;margin-bottom:14px;color:#fff;text-shadow:0 0 30px rgba(201,164,54,.3)}
 .load-status{font-size:12px;letter-spacing:4px;color:var(--gold);font-weight:700;margin-bottom:30px;min-height:18px;transition:opacity .3s}
@@ -52,6 +57,8 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
 .load-quote-wrap{margin:50px auto 0;max-width:320px;padding:24px 20px;border-top:1px solid rgba(201,164,54,.2);border-bottom:1px solid rgba(201,164,54,.2);min-height:100px;display:flex;flex-direction:column;justify-content:center;transition:opacity .4s}
 .load-quote{font-family:'Zen Old Mincho',serif;font-size:15px;line-height:1.9;color:var(--text);letter-spacing:1px;margin-bottom:10px}
 .load-quote-by{font-size:10px;letter-spacing:3px;color:var(--gold);font-weight:700;opacity:.7}
+
+/* RESULT */
 .result-screen{animation:fadeUp .8s ease}
 .char-hero{border-radius:24px;overflow:hidden;position:relative;margin-bottom:14px;aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:flex-end}
 .char-hero-bg{position:absolute;inset:0;z-index:0}
@@ -69,15 +76,18 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
 .char-headline{font-size:16px;font-weight:900;color:#fff;line-height:1.5;margin-bottom:12px}
 .char-talents{display:flex;gap:6px;flex-wrap:wrap}
 .talent-pill{font-size:10px;font-weight:800;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;letter-spacing:1px}
+
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:10px}
 .card-head{font-size:10px;font-weight:900;letter-spacing:4px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .card-head-line{flex:1;height:1px;background:var(--border)}
 .card-text{font-size:14px;line-height:1.95;color:rgba(255,255,255,.8);font-weight:700}
+
 .scores{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
 .score-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 10px;text-align:center}
 .score-lbl{font-size:9px;font-weight:800;letter-spacing:3px;color:var(--sub);margin-bottom:8px}
 .score-val{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;line-height:1}
 .score-unit{font-size:11px;font-weight:700;opacity:.4}
+
 .animal-card{border-radius:var(--radius);padding:20px 22px;margin-bottom:10px;display:flex;align-items:center;gap:18px;position:relative;overflow:hidden}
 .animal-card::before{content:'';position:absolute;inset:0;opacity:.08;background-image:radial-gradient(circle at 2px 2px,#fff 1px,transparent 0);background-size:24px 24px}
 .animal-emoji{font-size:56px;flex-shrink:0;position:relative;z-index:1}
@@ -85,17 +95,146 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
 .animal-lbl{font-size:9px;font-weight:800;letter-spacing:4px;color:rgba(255,255,255,.55);margin-bottom:5px}
 .animal-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:4px}
 .animal-reason{font-size:12px;color:rgba(255,255,255,.65);font-weight:700}
+
 .lineage-list{display:flex;flex-direction:column;gap:10px}
 .lineage-row{display:flex;align-items:center;gap:12px}
 .lineage-era{font-size:11px;font-weight:800;color:var(--sub);width:38px;text-align:right;flex-shrink:0}
 .lineage-track{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
 .lineage-fill{height:100%;border-radius:3px}
 .lineage-note{font-size:11px;font-weight:700;color:var(--sub);width:90px;flex-shrink:0}
+
 .msg-card{border-radius:var(--radius);padding:28px 24px;margin-bottom:16px;text-align:center;position:relative;overflow:hidden}
 .msg-card::before{content:'';position:absolute;inset:0;opacity:.06;background:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:12px 12px}
 .msg-from{font-size:9px;font-weight:800;letter-spacing:5px;color:rgba(255,255,255,.45);margin-bottom:16px}
 .msg-text{font-family:'Zen Old Mincho',serif;font-size:19px;font-weight:700;color:#fff;line-height:1.7;position:relative;z-index:1;letter-spacing:1px}
+
 .share-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:10px}
+
+/* ─── 漫画セクション ─── */
+.manga-section{background:linear-gradient(180deg,#0a0a0a,#0E0905);border:2px solid #fff;border-radius:var(--radius);padding:28px 22px;margin-bottom:10px;position:relative}
+.manga-header{text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.1)}
+.manga-eyebrow{font-size:11px;letter-spacing:8px;color:var(--gold);font-weight:900;margin-bottom:8px}
+.manga-title{font-family:'Zen Old Mincho',serif;font-size:36px;font-weight:900;color:#fff;letter-spacing:6px;line-height:1.1;margin-bottom:8px;text-shadow:3px 3px 0 rgba(0,0,0,1),0 0 30px rgba(201,164,54,.2)}
+.manga-subtitle{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.55);font-weight:700}
+
+.manga-panels{display:flex;flex-direction:column;gap:14px}
+.manga-panel{position:relative;background:#fff;border:3px solid #000;border-radius:4px;padding:0;overflow:hidden;box-shadow:6px 6px 0 #000,8px 8px 0 var(--gold)}
+.manga-panel-num{position:absolute;top:8px;left:10px;font-family:'Zen Old Mincho',serif;font-size:18px;font-weight:900;color:#000;z-index:3;background:#fff;padding:2px 8px;border:2px solid #000}
+
+.manga-panel-image{aspect-ratio:16/10;background:#1a1a1a;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.manga-panel-image::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent 0,transparent 8px,rgba(255,255,255,.04) 8px,rgba(255,255,255,.04) 10px);pointer-events:none}
+.manga-speed-lines{position:absolute;inset:0;background:radial-gradient(circle at center,transparent 30%,rgba(0,0,0,.4) 100%);pointer-events:none}
+.manga-panel-kanji{font-family:'Zen Old Mincho',serif;font-size:60px;font-weight:900;color:#fff;letter-spacing:4px;text-shadow:4px 4px 0 #000,8px 8px 20px rgba(201,164,54,.5);z-index:2;position:relative;text-align:center}
+.manga-panel-kanji-sub{font-size:11px;letter-spacing:4px;margin-top:8px;opacity:.8;font-weight:700}
+
+.manga-panel-scene{position:absolute;bottom:10px;right:12px;background:rgba(0,0,0,.8);color:#fff;padding:4px 10px;font-size:10px;font-weight:700;letter-spacing:2px;border:1px solid rgba(255,255,255,.3);z-index:2;max-width:75%;text-align:right}
+
+.manga-bubble{position:absolute;background:#fff;color:#000;padding:8px 14px;font-family:'Zen Old Mincho',serif;font-size:14px;font-weight:900;letter-spacing:1px;border:2px solid #000;line-height:1.4;z-index:3;max-width:60%;line-height:1.5}
+.manga-bubble.top-left{top:14px;right:14px;border-radius:20px}
+.manga-bubble.top-left::after{content:'';position:absolute;bottom:-10px;left:30%;width:0;height:0;border:8px solid transparent;border-top-color:#000;border-bottom:0}
+.manga-bubble.top-left::before{content:'';position:absolute;bottom:-7px;left:32%;width:0;height:0;border:6px solid transparent;border-top-color:#fff;border-bottom:0;z-index:1}
+
+.manga-narration{background:#fff;color:#000;padding:14px 18px;font-family:'Shippori Mincho',serif;font-size:13px;font-weight:700;letter-spacing:.5px;line-height:1.85;border-top:3px solid #000}
+
+.manga-panel.final{box-shadow:6px 6px 0 var(--gold),8px 8px 0 #B71C2C}
+.manga-panel.final .manga-panel-image{background:linear-gradient(135deg,#1a0a05,#2d1500,#1a0a05)}
+.manga-panel.final .manga-panel-kanji{color:var(--gold);text-shadow:4px 4px 0 #000,0 0 30px var(--gold)}
+
+.manga-credit{text-align:center;font-family:'Zen Old Mincho',serif;font-size:12px;color:rgba(255,255,255,.5);font-weight:700;letter-spacing:3px;margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}
+
+/* ─── ランディングセクション ─── */
+.lp-section{margin:64px 0 0;padding:0 4px;animation:fadeUp .8s ease}
+.lp-eyebrow{font-size:10px;letter-spacing:6px;color:var(--gold);opacity:.6;font-weight:700;text-align:center;margin-bottom:14px}
+.lp-title{font-family:'Zen Old Mincho',serif;font-size:32px;font-weight:900;color:#fff;text-align:center;letter-spacing:4px;line-height:1.25;margin-bottom:16px;text-shadow:0 0 30px rgba(201,164,54,.15)}
+.lp-lead{font-size:13px;line-height:1.9;color:rgba(255,255,255,.7);font-weight:700;text-align:center;letter-spacing:.5px;margin:18px 0 24px;padding:0 8px}
+
+.lp-card-grid{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+.lp-mini-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;text-align:center}
+.lp-mini-icon{font-size:30px;margin-bottom:8px}
+.lp-mini-title{font-family:'Zen Old Mincho',serif;font-size:17px;font-weight:900;color:var(--gold);letter-spacing:2px;margin-bottom:8px}
+.lp-mini-text{font-size:13px;color:rgba(255,255,255,.7);line-height:1.85;font-weight:700;letter-spacing:.5px}
+
+.lp-method{display:flex;align-items:flex-start;gap:18px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:10px}
+.lp-method-num{font-family:'Zen Old Mincho',serif;font-size:34px;font-weight:900;color:var(--gold);line-height:1;width:46px;flex-shrink:0;text-align:center;text-shadow:0 0 20px rgba(201,164,54,.3)}
+.lp-method-title{font-family:'Zen Old Mincho',serif;font-size:16px;font-weight:900;color:#fff;letter-spacing:2px;margin-bottom:6px}
+.lp-method-text{font-size:12px;color:rgba(255,255,255,.65);line-height:1.85;font-weight:700;letter-spacing:.3px}
+
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.cat-grid-item{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--surface);border:1px solid;border-radius:14px;padding:12px 8px;transition:all .2s}
+.cat-grid-item:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.cat-grid-icon{width:36px;height:36px;margin-bottom:8px;display:flex;align-items:center;justify-content:center}
+.cat-grid-name{font-family:'Zen Old Mincho',serif;font-size:18px;font-weight:900;letter-spacing:2px}
+
+.lp-target{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin-bottom:8px}
+.lp-target-icon{font-size:24px;flex-shrink:0}
+.lp-target-text{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;letter-spacing:.5px;line-height:1.6}
+.lp-target-text strong{color:var(--gold);font-weight:900}
+
+.lp-faq{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0;margin-bottom:8px;overflow:hidden}
+.lp-faq summary{cursor:pointer;padding:16px 18px;font-size:13px;font-weight:900;color:#fff;letter-spacing:1px;list-style:none;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.lp-faq summary::-webkit-details-marker{display:none}
+.lp-faq summary::after{content:'＋';color:var(--gold);font-size:20px;font-weight:300;transition:transform .2s}
+.lp-faq[open] summary{background:rgba(201,164,54,.05)}
+.lp-faq[open] summary::after{transform:rotate(45deg)}
+.lp-faq p{padding:0 18px 18px;font-size:12px;color:rgba(255,255,255,.65);line-height:1.9;font-weight:700;letter-spacing:.3px}
+
+.lp-final-cta{margin:72px 0 32px;padding:40px 24px;background:linear-gradient(160deg,rgba(201,164,54,.08),rgba(20,15,8,.4));border:1px solid rgba(201,164,54,.25);border-radius:var(--radius);text-align:center}
+.lp-final-eyebrow{font-size:10px;letter-spacing:6px;color:var(--gold);opacity:.7;font-weight:700;margin-bottom:14px}
+.lp-final-title{font-family:'Zen Old Mincho',serif;font-size:30px;font-weight:900;color:#fff;letter-spacing:4px;line-height:1.3;margin-bottom:10px;text-shadow:0 0 30px rgba(201,164,54,.3)}
+.lp-final-sub{font-size:12px;color:rgba(255,255,255,.6);font-weight:700;letter-spacing:1px;margin-bottom:24px}
+
+/* ─── LINE誘導セクション（ランディング内） ─── */
+.lp-line-section{margin:64px 0 0;padding:36px 24px;background:linear-gradient(160deg,rgba(6,199,85,.1) 0%,rgba(6,199,85,.04) 50%,rgba(14,9,5,.4) 100%);border:1px solid rgba(6,199,85,.3);border-radius:var(--radius);position:relative;overflow:hidden;text-align:center}
+.lp-line-glow{position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(6,199,85,.25),transparent 60%);pointer-events:none;z-index:0}
+.lp-line-section > *{position:relative;z-index:1}
+.lp-line-eyebrow{font-size:10px;letter-spacing:6px;color:#06C755;font-weight:900;margin-bottom:14px;text-shadow:0 0 16px rgba(6,199,85,.4)}
+.lp-line-title{font-family:'Zen Old Mincho',serif;font-size:32px;font-weight:900;color:#fff;letter-spacing:4px;line-height:1.3;margin-bottom:12px;text-shadow:0 0 30px rgba(6,199,85,.2)}
+.lp-line-sub{font-size:12px;color:rgba(255,255,255,.65);font-weight:700;line-height:1.85;letter-spacing:.5px;margin-bottom:26px}
+
+.lp-line-perks{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;text-align:left}
+.lp-line-perk{display:flex;align-items:flex-start;gap:14px;background:rgba(6,199,85,.06);border:1px solid rgba(6,199,85,.18);border-radius:10px;padding:14px 16px}
+.lp-line-perk-icon{font-size:24px;flex-shrink:0;line-height:1}
+.lp-line-perk-title{font-family:'Zen Old Mincho',serif;font-size:14px;font-weight:900;color:#fff;letter-spacing:1px;margin-bottom:3px}
+.lp-line-perk-text{font-size:11px;color:rgba(255,255,255,.65);font-weight:700;letter-spacing:.3px;line-height:1.5}
+
+.lp-line-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#06C755;color:#fff;text-decoration:none;border-radius:12px;padding:18px;font-family:'Shippori Mincho',serif;font-size:15px;font-weight:900;letter-spacing:3px;cursor:pointer;transition:all .25s;width:100%;border:none;box-shadow:0 8px 30px rgba(6,199,85,.3)}
+.lp-line-btn:hover{background:#05B04A;transform:translateY(-2px);box-shadow:0 12px 40px rgba(6,199,85,.45)}
+.lp-line-note{font-size:10px;color:rgba(255,255,255,.4);font-weight:700;letter-spacing:1.5px;margin-top:12px}
+
+
+/* 1024人の先祖カード */
+.ancestors-card{background:linear-gradient(160deg,rgba(201,164,54,.06),rgba(20,15,8,.4));border:1px solid rgba(201,164,54,.25);border-radius:var(--radius);padding:24px;margin-bottom:10px;position:relative;overflow:hidden}
+.ancestors-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(201,164,54,.04) 0%,transparent 50%);pointer-events:none}
+.ancestors-stat{text-align:center;padding:14px 0;position:relative;z-index:1}
+.ancestors-big-num{font-family:'Zen Old Mincho',serif;font-size:62px;font-weight:900;color:var(--gold);letter-spacing:4px;line-height:1;text-shadow:0 0 30px rgba(201,164,54,.4);margin-bottom:10px}
+.ancestors-big-num .unit{font-size:24px;margin-left:6px;opacity:.8}
+.ancestors-desc{font-size:13px;line-height:1.8;color:rgba(255,255,255,.75);font-weight:700;letter-spacing:.5px}
+.ancestors-desc strong{color:var(--gold);font-weight:900}
+.ancestors-dots{display:grid;grid-template-columns:repeat(32,1fr);gap:2px;margin:18px 0;padding:8px;background:rgba(0,0,0,.3);border-radius:4px;position:relative;z-index:1}
+.ancestors-dots .dot{aspect-ratio:1;background:var(--gold);border-radius:50%;opacity:0;animation:dotFadeIn .8s ease forwards}
+@keyframes dotFadeIn{from{opacity:0;transform:scale(0)}to{opacity:.6;transform:scale(1)}}
+.ancestors-quote{font-family:'Zen Old Mincho',serif;font-size:14px;text-align:center;color:#fff;font-weight:700;line-height:1.8;letter-spacing:1px;padding:14px 0;position:relative;z-index:1}
+.ancestors-divider{height:1px;background:linear-gradient(to right,transparent,rgba(201,164,54,.3),transparent);margin:16px 0}
+.population-text{font-size:13px;line-height:1.9;text-align:center;color:rgba(255,255,255,.82);font-weight:700;letter-spacing:.5px;position:relative;z-index:1}
+.population-text strong{color:var(--gold);font-family:'Zen Old Mincho',serif;font-size:17px;font-weight:900}
+.kuyo-box{background:rgba(201,164,54,.05);border:1px solid rgba(201,164,54,.2);border-radius:8px;padding:16px;position:relative;z-index:1}
+.kuyo-title{font-family:'Zen Old Mincho',serif;font-size:14px;font-weight:900;color:var(--gold);letter-spacing:2px;margin-bottom:8px}
+.kuyo-text{font-size:12px;line-height:1.85;color:rgba(255,255,255,.7);font-weight:700;letter-spacing:.3px}
+.soul-message{margin-top:16px;padding:14px;background:linear-gradient(135deg,rgba(201,164,54,.08),transparent);border-left:3px solid var(--gold);position:relative;z-index:1}
+.soul-message-text{font-family:'Zen Old Mincho',serif;font-size:16px;font-weight:900;color:#fff;letter-spacing:1.5px;line-height:1.6;text-align:center}
+
+/* LINE CTA */
+.line-cta{background:linear-gradient(135deg,rgba(6,199,85,.08),rgba(6,199,85,.04));border:1px solid rgba(6,199,85,.3);border-radius:var(--radius);padding:22px;margin-bottom:10px;position:relative;overflow:hidden}
+.line-cta::before{content:'';position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(6,199,85,.15),transparent 70%);pointer-events:none}
+.line-cta-inner{display:flex;gap:14px;margin-bottom:16px;position:relative;z-index:1}
+.line-cta-icon{flex-shrink:0;width:44px;height:44px;background:#06C755;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(6,199,85,.3)}
+.line-cta-text{flex:1}
+.line-cta-title{font-family:'Zen Old Mincho',serif;font-size:17px;font-weight:900;color:#fff;margin-bottom:4px;letter-spacing:1px}
+.line-cta-sub{font-size:11px;color:rgba(255,255,255,.55);font-weight:700;line-height:1.5;letter-spacing:.5px;margin-bottom:10px}
+.line-cta-perks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px}
+.line-cta-perks li{font-size:12px;color:rgba(255,255,255,.75);font-weight:700;letter-spacing:.5px}
+.line-cta-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#06C755;color:#fff;text-decoration:none;border-radius:10px;padding:15px;font-family:'Shippori Mincho',serif;font-size:14px;font-weight:900;letter-spacing:3px;cursor:pointer;transition:all .25s;width:100%;position:relative;z-index:1;border:none}
+.line-cta-btn:hover{background:#05B04A;transform:translateY(-2px);box-shadow:0 12px 30px rgba(6,199,85,.4)}
 .share-label{font-size:10px;font-weight:900;letter-spacing:4px;color:var(--sub);text-align:center;margin-bottom:18px;display:flex;align-items:center;gap:10px}
 .share-label::before,.share-label::after{content:'';flex:1;height:1px;background:var(--border)}
 .share-btns{display:flex;flex-direction:column;gap:10px}
@@ -103,6 +242,7 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
 .btn-x:hover{background:#111;transform:translateY(-2px)}
 .btn-ig{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCB045);color:#fff;border:none;border-radius:14px;padding:17px;font-family:'Shippori Mincho',serif;font-size:14px;font-weight:900;letter-spacing:2px;cursor:pointer;transition:all .25s;width:100%}
 .btn-ig:hover{opacity:.9;transform:translateY(-2px)}
+
 .ig-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.75);animation:fadeIn .2s ease}
 .ig-modal-box{background:#111;border:1px solid rgba(255,255,255,.12);border-radius:24px 24px 0 0;padding:32px 24px 40px;width:100%;max-width:420px;animation:slideUp .3s cubic-bezier(.34,1.56,.64,1)}
 .ig-modal-title{font-size:18px;font-weight:900;color:#fff;margin-bottom:6px}
@@ -114,11 +254,15 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
 .ig-modal-btns{display:flex;gap:10px}
 .ig-modal-ok{flex:2;background:linear-gradient(135deg,#833AB4,#FD1D1D,#FCB045);color:#fff;border:none;border-radius:12px;padding:15px;font-family:'Shippori Mincho',serif;font-size:13px;font-weight:900;cursor:pointer}
 .ig-modal-cancel{flex:1;background:transparent;color:var(--sub);border:1px solid var(--border);border-radius:12px;padding:15px;font-family:'Shippori Mincho',serif;font-size:13px;font-weight:900;cursor:pointer}
+
 .btn-reset{width:100%;background:transparent;color:var(--sub);border:1px solid var(--border);border-radius:14px;padding:16px;font-family:'Shippori Mincho',serif;font-size:13px;font-weight:900;letter-spacing:2px;cursor:pointer;transition:all .2s;margin-bottom:10px}
 .btn-reset:hover{border-color:rgba(255,255,255,.25);color:#fff}
+
+/* 固定フッターバー */
 .fixed-bar{position:fixed;bottom:0;left:0;right:0;z-index:50;padding:12px 16px 24px;background:linear-gradient(to top,rgba(14,9,5,1) 60%,transparent)}
 .fixed-bar button{width:100%;max-width:420px;display:block;margin:0 auto;background:linear-gradient(135deg,#8B6914,#C9A436,#8B6914);color:#0E0905;border:1px solid rgba(201,164,54,.4);border-radius:8px;padding:18px;font-family:'Shippori Mincho',serif;font-size:15px;font-weight:700;letter-spacing:5px;cursor:pointer;transition:all .25s}
 .fixed-bar button:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,164,54,.3)}
+
 .toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:12px 24px;border-radius:100px;font-size:13px;font-weight:800;letter-spacing:2px;z-index:200;white-space:nowrap;animation:toastIn .3s cubic-bezier(.34,1.56,.64,1)}
 .err{color:#FF6B6B;text-align:center;font-size:12px;font-weight:800;margin-top:10px}
 .hidden{display:none!important}
@@ -147,7 +291,221 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
       <p id="err" class="err hidden"></p>
     </div>
     <div class="examples" id="examples"></div>
+
+    <!-- ◆ なぜ今、先祖を知るのか -->
+    <section class="lp-section">
+      <p class="lp-eyebrow">SECTION 01</p>
+      <h2 class="lp-title">なぜ今、<br>先祖を知るのか</h2>
+      <div class="gold-ornament">
+        <div class="gold-line"></div>
+        <div class="gold-diamond"></div>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="lp-card-grid">
+        <div class="lp-mini-card">
+          <p class="lp-mini-icon">🌳</p>
+          <p class="lp-mini-title">自分のルーツを知る</p>
+          <p class="lp-mini-text">あなたの中に流れる血脈には、千年の物語が宿っている。</p>
+        </div>
+        <div class="lp-mini-card">
+          <p class="lp-mini-icon">✨</p>
+          <p class="lp-mini-title">才能の根源を知る</p>
+          <p class="lp-mini-text">なぜ自分はこうなのか。先祖から受け継いだ気質が見える。</p>
+        </div>
+        <div class="lp-mini-card">
+          <p class="lp-mini-icon">🏯</p>
+          <p class="lp-mini-title">誇りを取り戻す</p>
+          <p class="lp-mini-text">どんな苗字にも、語られざる先祖の物語がある。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ◆ AIが解き明かす5つの占術 -->
+    <section class="lp-section">
+      <p class="lp-eyebrow">SECTION 02</p>
+      <h2 class="lp-title">AIが解き明かす<br>5つの占術</h2>
+      <div class="gold-ornament">
+        <div class="gold-line"></div>
+        <div class="gold-diamond"></div>
+        <div class="gold-line"></div>
+      </div>
+      <p class="lp-lead">最新AIが、5つの占術を統合してあなたの先祖像を導き出します。</p>
+
+      <div class="lp-method">
+        <div class="lp-method-num">壱</div>
+        <div>
+          <p class="lp-method-title">姓名判断（天格）</p>
+          <p class="lp-method-text">苗字の総画数から、先祖が背負った運命の数字を読み解きます。</p>
+        </div>
+      </div>
+      <div class="lp-method">
+        <div class="lp-method-num">弐</div>
+        <div>
+          <p class="lp-method-title">動物占い</p>
+          <p class="lp-method-text">苗字の音韻と響きから、先祖の守護動物を特定します。</p>
+        </div>
+      </div>
+      <div class="lp-method">
+        <div class="lp-method-num">参</div>
+        <div>
+          <p class="lp-method-title">五行思想</p>
+          <p class="lp-method-text">木火土金水のいずれが、あなたの先祖の本質に宿るかを鑑定。</p>
+        </div>
+      </div>
+      <div class="lp-method">
+        <div class="lp-method-num">肆</div>
+        <div>
+          <p class="lp-method-title">氏族分類</p>
+          <p class="lp-method-text">源氏・平氏・藤原・橘氏など、由緒ある血脈の系譜を推定。</p>
+        </div>
+      </div>
+      <div class="lp-method">
+        <div class="lp-method-num">伍</div>
+        <div>
+          <p class="lp-method-title">苗字由来</p>
+          <p class="lp-method-text">地名・職業・自然—あなたの苗字の根源となる地と時代を探ります。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ◆ 9つの先祖像 -->
+    <section class="lp-section">
+      <p class="lp-eyebrow">SECTION 03</p>
+      <h2 class="lp-title">9つの先祖像</h2>
+      <div class="gold-ornament">
+        <div class="gold-line"></div>
+        <div class="gold-diamond"></div>
+        <div class="gold-line"></div>
+      </div>
+      <p class="lp-lead">あなたの先祖は、9つのいずれかの「型」を持っています。</p>
+
+      <div class="cat-grid" id="cat-grid"></div>
+    </section>
+
+    <!-- ◆ こんな方におすすめ -->
+    <section class="lp-section">
+      <p class="lp-eyebrow">SECTION 04</p>
+      <h2 class="lp-title">こんな方に<br>おすすめ</h2>
+      <div class="gold-ornament">
+        <div class="gold-line"></div>
+        <div class="gold-diamond"></div>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="lp-target">
+        <p class="lp-target-icon">🌸</p>
+        <p class="lp-target-text">自分の<strong>本当の強み</strong>を知りたい人</p>
+      </div>
+      <div class="lp-target">
+        <p class="lp-target-icon">💞</p>
+        <p class="lp-target-text">パートナーや家族と<strong>ルーツの話で盛り上がりたい</strong>人</p>
+      </div>
+      <div class="lp-target">
+        <p class="lp-target-icon">🎴</p>
+        <p class="lp-target-text">占い・MBTI・スピリチュアルが<strong>好きな</strong>人</p>
+      </div>
+      <div class="lp-target">
+        <p class="lp-target-icon">📜</p>
+        <p class="lp-target-text">日本の<strong>歴史・伝統文化</strong>に興味がある人</p>
+      </div>
+      <div class="lp-target">
+        <p class="lp-target-icon">🏛</p>
+        <p class="lp-target-text">家紋・家系・先祖供養に<strong>関心がある</strong>人</p>
+      </div>
+      <div class="lp-target">
+        <p class="lp-target-icon">📸</p>
+        <p class="lp-target-text">Instagramで<strong>シェアしたい</strong>診断好きな人</p>
+      </div>
+    </section>
+
+    <!-- ◆ LINE登録誘導（ランディング途中） -->
+    <section class="lp-line-section">
+      <div class="lp-line-glow"></div>
+      <p class="lp-line-eyebrow">◆ 限定特典 ◆</p>
+      <h2 class="lp-line-title">LINE登録で<br>もっと深く</h2>
+      <p class="lp-line-sub">月に一度、あなたの先祖からのメッセージを<br>LINEでお届けします</p>
+
+      <div class="lp-line-perks">
+        <div class="lp-line-perk">
+          <span class="lp-line-perk-icon">🔮</span>
+          <div>
+            <p class="lp-line-perk-title">苗字相性占い</p>
+            <p class="lp-line-perk-text">彼氏・彼女・友達と苗字の相性を診断</p>
+          </div>
+        </div>
+        <div class="lp-line-perk">
+          <span class="lp-line-perk-icon">📜</span>
+          <div>
+            <p class="lp-line-perk-title">詳細鑑定書PDF</p>
+            <p class="lp-line-perk-text">家紋入りの鑑定書を高解像度で受け取り</p>
+          </div>
+        </div>
+        <div class="lp-line-perk">
+          <span class="lp-line-perk-icon">🏯</span>
+          <div>
+            <p class="lp-line-perk-title">月1の先祖メッセージ</p>
+            <p class="lp-line-perk-text">あなたの先祖からの今月のお告げ</p>
+          </div>
+        </div>
+        <div class="lp-line-perk">
+          <span class="lp-line-perk-icon">📊</span>
+          <div>
+            <p class="lp-line-perk-title">47都道府県ランキング</p>
+            <p class="lp-line-perk-text">あなたの苗字の県別分布データ</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://lin.ee/Z6qlOdt" target="_blank" rel="noopener" class="lp-line-btn">
+        <svg width="22" height="22" viewBox="0 0 36 36"><path d="M18 0C8.06 0 0 6.58 0 14.69c0 7.28 6.39 13.37 15.02 14.51.59.13 1.39.39 1.59.89.18.45.12 1.16.06 1.62l-.26 1.55c-.08.46-.36 1.79 1.57.98 1.93-.81 10.43-6.14 14.23-10.51C34.85 20.79 36 17.91 36 14.69 36 6.58 27.94 0 18 0z" fill="#fff"/></svg>
+        LINEで友だち追加（無料）
+      </a>
+      <p class="lp-line-note">※ いつでもブロック解除できます</p>
+    </section>
+
+    <!-- ◆ よくあるご質問 -->
+    <section class="lp-section">
+      <p class="lp-eyebrow">SECTION 05</p>
+      <h2 class="lp-title">よくあるご質問</h2>
+      <div class="gold-ornament">
+        <div class="gold-line"></div>
+        <div class="gold-diamond"></div>
+        <div class="gold-line"></div>
+      </div>
+
+      <details class="lp-faq">
+        <summary>Q. 完全に無料で使えますか？</summary>
+        <p>はい。基本鑑定はすべて無料でご利用いただけます。LINE登録すると相性占いなど追加機能が解放されます。</p>
+      </details>
+      <details class="lp-faq">
+        <summary>Q. 結果は正確ですか？</summary>
+        <p>本サービスは姓名判断・五行・氏族分類など、複数の伝統的占術をAIが統合した「物語性のある鑑定」です。エンターテインメントとしてお楽しみください。</p>
+      </details>
+      <details class="lp-faq">
+        <summary>Q. 個人情報は保存されますか？</summary>
+        <p>苗字以外の情報は一切収集しません。入力された苗字も鑑定後にサーバーに保存されることはありません。</p>
+      </details>
+      <details class="lp-faq">
+        <summary>Q. 結果が変わることはありますか？</summary>
+        <p>AIによる鑑定のため、同じ苗字でも表現や物語が変わる場合があります。何度でもお試しください。</p>
+      </details>
+      <details class="lp-faq">
+        <summary>Q. 珍しい苗字でも鑑定できますか？</summary>
+        <p>はい。全国に数人しかいない希少姓でも、由来と語源から先祖の物語を導き出します。</p>
+      </details>
+    </section>
+
+    <!-- ◆ 最終CTA -->
+    <section class="lp-final-cta">
+      <p class="lp-final-eyebrow">◆ さあ、はじめましょう ◆</p>
+      <h2 class="lp-final-title">あなたの先祖は<br>誰だったのか</h2>
+      <p class="lp-final-sub">3分で、千年の物語があなたの元へ。</p>
+      <button class="btn-go" onclick="document.getElementById('inp').focus();window.scrollTo({top:0,behavior:'smooth'})">▲ 上に戻って占う</button>
+    </section>
+
   </div>
+
   <div id="s-load" class="loading-screen hidden">
     <div class="load-name" id="load-name"></div>
     <p class="load-status" id="load-status">血脈の記憶を呼び覚ましています</p>
@@ -160,6 +518,7 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
       <p class="load-quote-by" id="load-quote-by"></p>
     </div>
   </div>
+
   <div id="s-result" class="result-screen hidden">
     <div class="char-hero" id="char-hero">
       <div class="char-hero-bg" id="char-bg"></div>
@@ -177,11 +536,13 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
         <div class="char-talents" id="r-talents"></div>
       </div>
     </div>
+
     <div class="scores">
       <div class="score-box"><p class="score-lbl">天格</p><p class="score-val" id="r-tenkaku">—</p></div>
       <div class="score-box"><p class="score-lbl">氏族</p><p class="score-val" id="r-clan" style="font-size:16px;line-height:1.2;margin-top:4px">—</p></div>
       <div class="score-box"><p class="score-lbl">希少度</p><p class="score-val" id="r-rarity">—<span class="score-unit">/100</span></p></div>
     </div>
+
     <div class="animal-card" id="animal-card">
       <div class="animal-emoji" id="r-ani-emoji"></div>
       <div class="animal-info">
@@ -190,14 +551,86 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
         <p class="animal-reason" id="r-ani-reason"></p>
       </div>
     </div>
+
     <div class="card"><p class="card-head" id="h-story"><span></span><span class="card-head-line"></span></p><p class="card-text" id="r-story"></p></div>
     <div class="card"><p class="card-head" id="h-div"><span></span><span class="card-head-line"></span></p><p class="card-text" id="r-div"></p></div>
     <div class="card"><p class="card-head" id="h-char"><span></span><span class="card-head-line"></span></p><p class="card-text" id="r-char"></p></div>
     <div class="card"><p class="card-head" id="h-lin"><span></span><span class="card-head-line"></span></p><div class="lineage-list" id="r-lin"></div></div>
+
     <div class="msg-card" id="msg-card">
       <p class="msg-from">— 先祖からあなたへ —</p>
       <p class="msg-text" id="r-msg"></p>
     </div>
+
+    <!-- ◆ 先祖の物語（漫画） -->
+    <div class="manga-section">
+      <div class="manga-header">
+        <p class="manga-eyebrow">◆ MANGA ◆</p>
+        <h3 class="manga-title">先祖の<br>物語</h3>
+        <p class="manga-subtitle">血脈に刻まれた、誇りの一幕</p>
+      </div>
+      <div class="manga-panels" id="manga-panels"></div>
+      <p class="manga-credit">― あなたの誇りは、彼らから受け継がれた ―</p>
+    </div>
+
+    <!-- 1024人の先祖セクション -->
+    <div class="ancestors-card">
+      <p class="card-head" style="color:var(--gold)"><span>◆ 千を超える先祖たち</span><span class="card-head-line"></span></p>
+
+      <div class="ancestors-stat">
+        <div class="ancestors-big-num">1,024<span class="unit">人</span></div>
+        <p class="ancestors-desc">10代（約300年前・江戸中期〜後期）まで遡ると、<br>あなたの直系の先祖は <strong>1,024人</strong> に達します。</p>
+      </div>
+
+      <div class="ancestors-dots" id="ancestors-dots"></div>
+
+      <p class="ancestors-quote">「彼ら一人でも欠けていれば、<br>今のあなたは存在しない」</p>
+
+      <div class="ancestors-divider"></div>
+
+      <p class="population-text">
+        全国に <strong id="r-population">—</strong> 人いる<strong id="r-myoji-pop"></strong>姓のうち、<br>
+        あなたの血脈は唯一無二の存在です。
+      </p>
+
+      <div class="ancestors-divider"></div>
+
+      <div class="kuyo-box">
+        <p class="kuyo-title">🕯️ 先祖供養のすゝめ</p>
+        <p class="kuyo-text">
+          ご先祖様への感謝は、運気を整える最古の習わし。<br>
+          月命日のお参り、お盆・お彼岸のご供養、お墓掃除など、<br>
+          先祖と繋がる時間が、あなたの未来を照らします。
+        </p>
+      </div>
+
+      <div class="soul-message">
+        <p class="soul-message-text">先祖の<span style="color:var(--gold)">最高の魂</span>が、今、あなたに生きている。</p>
+      </div>
+    </div>
+
+    <!-- LINE特典CTA（控えめ・任意） -->
+    <div class="line-cta">
+      <div class="line-cta-inner">
+        <div class="line-cta-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36"><path d="M18 0C8.06 0 0 6.58 0 14.69c0 7.28 6.39 13.37 15.02 14.51.59.13 1.39.39 1.59.89.18.45.12 1.16.06 1.62l-.26 1.55c-.08.46-.36 1.79 1.57.98 1.93-.81 10.43-6.14 14.23-10.51C34.85 20.79 36 17.91 36 14.69 36 6.58 27.94 0 18 0z" fill="#fff"/><path d="M14.83 10.78h-1.26c-.19 0-.35.16-.35.35v7.83c0 .19.16.35.35.35h1.26c.19 0 .35-.16.35-.35v-7.83c0-.19-.16-.35-.35-.35zm8.67 0h-1.26c-.19 0-.35.16-.35.35v4.65l-3.59-4.84-.03-.03-.02-.02-.02-.02-.01-.01h-.01l-.01-.01h-.01l-.01-.01h-.04l-.01-.01h-1.31c-.19 0-.35.16-.35.35v7.83c0 .19.16.35.35.35h1.26c.19 0 .35-.16.35-.35v-4.65l3.59 4.84c.02.04.05.06.09.09h.04l.01.01h1.29c.19 0 .35-.16.35-.35v-7.84c-.01-.18-.16-.34-.35-.34zm-11.71 6.57H8.36v-6.22c0-.19-.16-.35-.35-.35H6.75c-.19 0-.35.16-.35.35v7.83c0 .09.04.18.1.24.06.06.14.1.24.1h5.03c.19 0 .35-.16.35-.35v-1.26c0-.19-.16-.34-.35-.34zm17.34-6.57h-5.03c-.19 0-.35.16-.35.35v7.83c0 .19.16.35.35.35h5.03c.19 0 .35-.16.35-.35v-1.26c0-.19-.16-.35-.35-.35h-3.42v-1.32h3.42c.19 0 .35-.16.35-.35v-1.27c0-.19-.16-.35-.35-.35h-3.42v-1.32h3.42c.19 0 .35-.16.35-.35v-1.26c0-.19-.16-.35-.35-.35z" fill="#06C755"/></svg>
+        </div>
+        <div class="line-cta-text">
+          <p class="line-cta-title">もっと深く知りたい方へ</p>
+          <p class="line-cta-sub">月1回「先祖からのメッセージ」をLINEでお届け</p>
+          <ul class="line-cta-perks">
+            <li>🔮 苗字相性占い（彼氏・友達と）</li>
+            <li>📜 詳細鑑定書PDF</li>
+            <li>🏯 家紋画像ダウンロード</li>
+          </ul>
+        </div>
+      </div>
+      <a href="https://lin.ee/Z6qlOdt" target="_blank" rel="noopener" class="line-cta-btn">
+        <svg width="22" height="22" viewBox="0 0 36 36"><path d="M18 0C8.06 0 0 6.58 0 14.69c0 7.28 6.39 13.37 15.02 14.51.59.13 1.39.39 1.59.89.18.45.12 1.16.06 1.62l-.26 1.55c-.08.46-.36 1.79 1.57.98 1.93-.81 10.43-6.14 14.23-10.51C34.85 20.79 36 17.91 36 14.69 36 6.58 27.94 0 18 0z" fill="#06C755"/><path d="M14.83 10.78h-1.26c-.19 0-.35.16-.35.35v7.83c0 .19.16.35.35.35h1.26c.19 0 .35-.16.35-.35v-7.83c0-.19-.16-.35-.35-.35zm8.67 0h-1.26c-.19 0-.35.16-.35.35v4.65l-3.59-4.84-.03-.03-.02-.02-.02-.02-.01-.01h-.01l-.01-.01h-.01l-.01-.01h-.04l-.01-.01h-1.31c-.19 0-.35.16-.35.35v7.83c0 .19.16.35.35.35h1.26c.19 0 .35-.16.35-.35v-4.65l3.59 4.84c.02.04.05.06.09.09h.04l.01.01h1.29c.19 0 .35-.16.35-.35v-7.84c-.01-.18-.16-.34-.35-.34zm-11.71 6.57H8.36v-6.22c0-.19-.16-.35-.35-.35H6.75c-.19 0-.35.16-.35.35v7.83c0 .09.04.18.1.24.06.06.14.1.24.1h5.03c.19 0 .35-.16.35-.35v-1.26c0-.19-.16-.34-.35-.34zm17.34-6.57h-5.03c-.19 0-.35.16-.35.35v7.83c0 .19.16.35.35.35h5.03c.19 0 .35-.16.35-.35v-1.26c0-.19-.16-.35-.35-.35h-3.42v-1.32h3.42c.19 0 .35-.16.35-.35v-1.27c0-.19-.16-.35-.35-.35h-3.42v-1.32h3.42c.19 0 .35-.16.35-.35v-1.26c0-.19-.16-.35-.35-.35z" fill="#fff"/></svg>
+        LINEで受け取る（無料）
+      </a>
+    </div>
+
     <div class="share-section">
       <p class="share-label">SHARE YOUR RESULT</p>
       <div class="share-btns">
@@ -213,9 +646,12 @@ input[type=text]::placeholder{color:rgba(255,255,255,.15);font-size:20px;letter-
     </div>
     <button class="btn-reset" onclick="reset()">← もう一度占う</button>
   </div>
+
+  <!-- 固定フッターバー -->
   <div id="fixed-bar" class="fixed-bar hidden">
     <button onclick="reset()">🔮 もう一度占う</button>
   </div>
+
   <div class="ig-modal hidden" id="ig-modal" onclick="if(event.target===this)closeIgModal()">
     <div class="ig-modal-box">
       <p class="ig-modal-title">📸 Instagram Storiesにシェア</p>
@@ -249,37 +685,59 @@ const CAT_ICONS={"侍":"⚔️","貴族":"👑","神職":"⛩️","豪商":"💰
 const ANIMALS={龍:{e:"🐉",t:"天下を動かす傑物"},虎:{e:"🐅",t:"勇猛果敢な猛将"},鷹:{e:"🦅",t:"遠くを見通す知将"},狐:{e:"🦊",t:"百戦錬磨の策士"},狼:{e:"🐺",t:"忠義に生きる武人"},熊:{e:"🐻",t:"大地に根ざす頭領"},鶴:{e:"🦢",t:"高貴にして優雅"},馬:{e:"🐴",t:"疾風の如き行動力"},亀:{e:"🐢",t:"深謀遠慮の賢人"},牛:{e:"🐂",t:"不屈の精神で耕す"},蛇:{e:"🐍",t:"深淵なる智恵者"},猿:{e:"🐒",t:"機知に富む奇才"}};
 const EXAMPLES=["富山","田中","鈴木","佐藤","渡辺","織田","徳川","松本","源","平"];
 const RANK_H={"最高":100,"高":72,"中程度":42,"低":18};
-function svgBushi(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="bushi-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#B71C2C" stop-opacity=".15"/><stop offset="100%" stop-color="#B71C2C" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#bushi-bg)"/><polygon points="76,232 96,232 92,260 80,260" fill="#1A0408"/><polygon points="104,232 124,232 120,260 108,260" fill="#1A0408"/><polygon points="76,232 96,232 88,232" fill="#0A0204"/><polygon points="104,232 124,232 116,232" fill="#0A0204"/><polygon points="60,140 140,140 148,232 52,232" fill="#2A080C"/><polygon points="60,140 100,140 92,232 52,232" fill="#3D0A12"/><polygon points="100,140 140,140 148,232 92,232" fill="#1A0408"/><polygon points="60,140 140,140 134,158 66,158" fill="#B71C2C"/><polygon points="100,140 140,140 134,158 100,158" fill="#8B0E1A"/><polygon points="68,170 96,170 92,205 72,205" fill="#1A0408" stroke="#B71C2C" stroke-width="1"/><polygon points="104,170 132,170 128,205 108,205" fill="#1A0408" stroke="#B71C2C" stroke-width="1"/><polygon points="36,148 60,140 60,180 42,178" fill="#1A0408"/><polygon points="164,148 140,140 140,180 158,178" fill="#1A0408"/><polygon points="30,170 50,170 46,210 34,208" fill="#2A080C"/><polygon points="170,170 150,170 154,210 166,208" fill="#2A080C"/><polygon points="78,80 122,80 132,134 68,134" fill="#E8C8A4"/><polygon points="78,80 100,80 96,134 68,134" fill="#D4B088"/><polygon points="100,80 122,80 132,134 96,134" fill="#E8C8A4"/><polygon points="62,80 100,42 138,80 132,90 100,72 68,90" fill="#1A0408"/><polygon points="62,80 100,42 100,72 68,90" fill="#3D0A12"/><polygon points="100,42 138,80 132,90 100,72" fill="#1A0408"/><polygon points="68,90 132,90 128,108 72,108" fill="#B71C2C"/><polygon points="68,90 100,90 96,108 72,108" fill="#8B0E1A"/><polygon points="92,42 108,42 104,18 96,18" fill="#FFD700"/><polygon points="92,42 100,42 96,18" fill="#D4AF37"/><polygon points="84,108 96,108 94,114 86,114" fill="#0A0010"/><polygon points="104,108 116,108 114,114 106,114" fill="#0A0010"/><polygon points="80,118 96,118 96,124 80,124" fill="#5C3317"/><polygon points="104,118 120,118 120,124 104,124" fill="#5C3317"/><polygon points="92,128 108,128 104,134 96,134" fill="#A06050"/><polygon points="170,160 178,160 176,236 168,236" fill="#1A0408"/><polygon points="170,160 174,160 172,236 168,236" fill="#0A0204"/><polygon points="166,184 182,184 180,196 168,196" fill="#FFD700"/><polygon points="170,148 178,148 176,160 168,160" fill="#8B6914"/></svg>`;}
-function svgKuge(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="kuge-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#7C4DCC" stop-opacity=".15"/><stop offset="100%" stop-color="#7C4DCC" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#kuge-bg)"/><polygon points="50,140 150,140 168,250 32,250" fill="#3B1F6E"/><polygon points="50,140 100,140 92,250 32,250" fill="#4A2A82"/><polygon points="100,140 150,140 168,250 92,250" fill="#2D1758"/><polygon points="60,140 140,140 132,180 68,180" fill="#7C4DCC"/><polygon points="60,140 100,140 96,180 68,180" fill="#9166DC"/><polygon points="60,180 140,180 144,196 56,196" fill="#FFD700"/><polygon points="60,180 100,180 100,196 56,196" fill="#D4AF37"/><polygon points="32,150 50,140 56,210 38,212" fill="#3B1F6E"/><polygon points="168,150 150,140 144,210 162,212" fill="#3B1F6E"/><polygon points="20,200 38,212 42,222 26,224" fill="#7C4DCC" opacity=".7"/><polygon points="180,200 162,212 158,222 174,224" fill="#7C4DCC" opacity=".7"/><polygon points="78,82 122,82 130,134 70,134" fill="#F4D8B8"/><polygon points="78,82 100,82 96,134 70,134" fill="#E0C4A0"/><polygon points="100,82 122,82 130,134 96,134" fill="#F4D8B8"/><polygon points="80,82 120,82 116,68 84,68" fill="#0A0010"/><polygon points="80,82 100,82 96,68 84,68" fill="#1A0028"/><polygon points="92,68 108,68 104,28 100,16 96,28" fill="#0A0010"/><polygon points="92,68 100,68 96,28" fill="#1A0028"/><polygon points="84,98 94,98 92,104 86,104" fill="#2A1A0A"/><polygon points="106,98 116,98 114,104 108,104" fill="#2A1A0A"/><polygon points="92,120 108,120 104,126 96,126" fill="#C09070"/><polygon points="146,134 184,76 192,82 152,140" fill="#9166DC"/><polygon points="146,134 168,108 192,82 178,118" fill="#7C4DCC"/><polygon points="146,134 184,76 188,80" fill="#5A3299" opacity=".5"/></svg>`;}
-function svgShinto(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="shinto-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#D14831" stop-opacity=".15"/><stop offset="100%" stop-color="#D14831" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#shinto-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#F0EBE0"/><polygon points="52,140 100,140 94,250 38,250" fill="#FAFAF0"/><polygon points="100,140 148,140 162,250 94,250" fill="#E0DCD0"/><polygon points="60,140 140,140 134,182 66,182" fill="#D14831"/><polygon points="60,140 100,140 96,182 66,182" fill="#E85838"/><polygon points="100,140 140,140 134,182 96,182" fill="#A8341C"/><polygon points="38,150 52,140 56,210 42,214" fill="#F0EBE0"/><polygon points="162,150 148,140 144,210 158,214" fill="#F0EBE0"/><polygon points="78,82 122,82 130,134 70,134" fill="#F4C8A0"/><polygon points="78,82 100,82 96,134 70,134" fill="#DBB088"/><polygon points="100,82 122,82 130,134 96,134" fill="#F4C8A0"/><polygon points="76,80 124,80 122,72 78,72" fill="#0A0A0A"/><polygon points="92,72 108,72 106,40 94,40" fill="#0A0A0A"/><polygon points="92,40 108,40 104,18 96,18" fill="#1A1A1A"/><polygon points="84,98 94,98 92,104 86,104" fill="#0A0A0A"/><polygon points="106,98 116,98 114,104 108,104" fill="#0A0A0A"/><polygon points="92,120 108,120 104,126 96,126" fill="#A06850"/><polygon points="170,140 178,140 176,236 168,236" fill="#8B6914"/><polygon points="158,142 190,142 184,158 176,154 168,158 162,154" fill="#FFFFFF"/><polygon points="158,142 174,142 172,158 162,154" fill="#F0F0F0"/><polygon points="158,156 190,156 184,172 176,168 168,172 162,168" fill="#FFFFFF"/></svg>`;}
-function svgMerchant(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="merc-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#C9A436" stop-opacity=".15"/><stop offset="100%" stop-color="#C9A436" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#merc-bg)"/><polygon points="50,140 150,140 168,250 32,250" fill="#1A2418"/><polygon points="50,140 100,140 92,250 32,250" fill="#243228"/><polygon points="100,140 150,140 168,250 92,250" fill="#0F1810"/><circle cx="100" cy="180" r="14" fill="none" stroke="#C9A436" stroke-width="2"/><polygon points="100,170 108,180 100,190 92,180" fill="#C9A436"/><polygon points="32,150 50,140 54,212 36,214" fill="#1A2418"/><polygon points="168,150 150,140 146,212 164,214" fill="#1A2418"/><polygon points="78,82 122,82 130,134 70,134" fill="#D4A578"/><polygon points="78,82 100,82 96,134 70,134" fill="#BC8E60"/><polygon points="100,82 122,82 130,134 96,134" fill="#D4A578"/><polygon points="68,76 132,76 128,62 72,62" fill="#1A0E00"/><polygon points="68,76 100,76 96,62 72,62" fill="#2A1A08"/><polygon points="74,62 126,62 124,48 76,48" fill="#2A1A00"/><polygon points="84,98 94,98 92,103 86,103" fill="#2A1000"/><polygon points="106,98 116,98 114,103 108,103" fill="#2A1000"/><polygon points="86,118 114,118 110,128 90,128" fill="#A06030"/><polygon points="86,118 100,118 98,128 90,128" fill="#8A4820"/><polygon points="22,140 44,140 44,200 22,200" fill="#5C3010"/><polygon points="22,140 33,140 33,200 22,200" fill="#3D1F08"/><polygon points="22,156 44,156 44,160 22,160" fill="#2A1408"/><polygon points="22,176 44,176 44,180 22,180" fill="#2A1408"/><circle cx="28" cy="148" r="3" fill="#C9A436"/><circle cx="38" cy="148" r="3" fill="#C9A436"/><circle cx="28" cy="168" r="3" fill="#C9A436"/><circle cx="28" cy="188" r="3" fill="#C9A436"/><circle cx="38" cy="188" r="3" fill="#C9A436"/></svg>`;}
-function svgFarmer(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="farm-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#A37C3F" stop-opacity=".15"/><stop offset="100%" stop-color="#A37C3F" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#farm-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#5C3D1A"/><polygon points="52,140 100,140 94,250 38,250" fill="#704A20"/><polygon points="100,140 148,140 162,250 94,250" fill="#42280A"/><polygon points="60,178 140,178 142,188 58,188" fill="#3B1E08"/><polygon points="38,150 52,140 56,212 42,214" fill="#5C3D1A"/><polygon points="162,150 148,140 144,212 158,214" fill="#5C3D1A"/><polygon points="78,82 122,82 130,134 70,134" fill="#B07848"/><polygon points="78,82 100,82 96,134 70,134" fill="#965E2E"/><polygon points="100,82 122,82 130,134 96,134" fill="#B07848"/><polygon points="50,72 150,72 130,82 70,82" fill="#C9A436"/><polygon points="50,72 100,72 100,82 70,82" fill="#A8841A"/><polygon points="100,72 150,72 130,82 100,82" fill="#8E6A14"/><polygon points="84,98 94,98 92,104 86,104" fill="#1A0800"/><polygon points="106,98 116,98 114,104 108,104" fill="#1A0800"/><polygon points="84,118 116,118 110,130 90,130" fill="#7A4020"/><polygon points="84,118 100,118 96,130 90,130" fill="#5A2810"/><polygon points="172,140 178,140 178,250 172,250" fill="#5C3010"/><polygon points="158,140 188,140 184,160 162,160" fill="#888"/><polygon points="158,140 173,140 173,160 162,160" fill="#666"/><polygon points="158,140 188,140 184,144 162,144" fill="#AAA"/></svg>`;}
-function svgJizamurai(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="jiz-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#A8421C" stop-opacity=".15"/><stop offset="100%" stop-color="#A8421C" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#jiz-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#1A0A05"/><polygon points="52,140 100,140 94,250 38,250" fill="#28120A"/><polygon points="100,140 148,140 162,250 94,250" fill="#0F0500"/><polygon points="60,140 140,140 134,156 66,156" fill="#A8421C"/><polygon points="60,140 100,140 96,156 66,156" fill="#C2521E"/><polygon points="68,166 96,166 92,202 72,202" fill="#28120A" stroke="#A8421C" stroke-width="1"/><polygon points="104,166 132,166 128,202 108,202" fill="#28120A" stroke="#A8421C" stroke-width="1"/><polygon points="38,150 52,140 56,210 42,214" fill="#1A0A05"/><polygon points="162,150 148,140 144,210 158,214" fill="#1A0A05"/><polygon points="78,82 122,82 130,134 70,134" fill="#C8966A"/><polygon points="78,82 100,82 96,134 70,134" fill="#A87850"/><polygon points="100,82 122,82 130,134 96,134" fill="#C8966A"/><polygon points="68,84 132,84 128,68 72,68" fill="#1A0A05"/><polygon points="68,84 100,84 96,68 72,68" fill="#2A1410"/><polygon points="84,68 116,68 114,52 86,52" fill="#1A0A05"/><polygon points="78,92 122,92 120,98 80,98" fill="#A8421C"/><polygon points="84,102 94,102 92,108 86,108" fill="#0A0500"/><polygon points="106,102 116,102 114,108 108,108" fill="#0A0500"/><polygon points="86,122 114,122 110,128 90,128" fill="#7A3818"/><polygon points="170,118 178,118 178,242 170,242" fill="#5C3010"/><polygon points="160,118 188,118 184,140 164,140" fill="#AAA"/><polygon points="160,118 173,118 173,140 164,140" fill="#888"/></svg>`;}
-function svgCraftsman(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="craft-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#3D6B8E" stop-opacity=".15"/><stop offset="100%" stop-color="#3D6B8E" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#craft-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#0F1E38"/><polygon points="52,140 100,140 94,250 38,250" fill="#1A2E50"/><polygon points="100,140 148,140 162,250 94,250" fill="#08152A"/><polygon points="64,156 136,156 138,242 62,242" fill="#3D6B8E"/><polygon points="64,156 100,156 96,242 62,242" fill="#4D7B9E"/><polygon points="100,156 136,156 138,242 96,242" fill="#2D5B7E"/><polygon points="38,150 52,140 56,212 42,214" fill="#0F1E38"/><polygon points="162,150 148,140 144,212 158,214" fill="#0F1E38"/><polygon points="78,82 122,82 130,134 70,134" fill="#F0C898"/><polygon points="78,82 100,82 96,134 70,134" fill="#D4AC78"/><polygon points="100,82 122,82 130,134 96,134" fill="#F0C898"/><polygon points="68,82 132,82 128,72 72,72" fill="#3D6B8E"/><polygon points="68,82 100,82 96,72 72,72" fill="#4D7B9E"/><polygon points="84,100 94,100 92,106 86,106" fill="#0A1030"/><polygon points="106,100 116,100 114,106 108,106" fill="#0A1030"/><polygon points="86,120 114,120 110,128 90,128" fill="#A07848"/><polygon points="20,128 32,128 32,200 20,200" fill="#5C3010"/><polygon points="20,128 26,128 26,200 20,200" fill="#3D1F08"/><polygon points="14,118 38,118 38,134 14,134" fill="#888"/><polygon points="14,118 26,118 26,134 14,134" fill="#666"/></svg>`;}
-function svgMonk(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="monk-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#8B7B6A" stop-opacity=".15"/><stop offset="100%" stop-color="#8B7B6A" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#monk-bg)"/><polygon points="48,140 152,140 168,250 32,250" fill="#1A1612"/><polygon points="48,140 100,140 92,250 32,250" fill="#2A241E"/><polygon points="100,140 152,140 168,250 92,250" fill="#0F0C08"/><polygon points="60,140 140,140 134,184 66,184" fill="#A37C3F"/><polygon points="60,140 100,140 96,184 66,184" fill="#B88C50"/><polygon points="100,140 140,140 134,184 96,184" fill="#8E682E"/><polygon points="32,154 48,140 52,212 36,214" fill="#1A1612"/><polygon points="168,154 152,140 148,212 164,214" fill="#1A1612"/><polygon points="78,82 122,82 130,134 70,134" fill="#D4A878"/><polygon points="78,82 100,82 96,134 70,134" fill="#B88858"/><polygon points="100,82 122,82 130,134 96,134" fill="#D4A878"/><polygon points="76,82 124,82 122,68 78,68" fill="#C89058"/><polygon points="84,100 94,100 92,106 86,106" fill="#2A1008"/><polygon points="106,100 116,100 114,106 108,106" fill="#2A1008"/><polygon points="92,122 108,122 104,128 96,128" fill="#A06840"/><circle cx="32" cy="156" r="4" fill="#A37C3F"/><circle cx="38" cy="172" r="4" fill="#A37C3F"/><circle cx="46" cy="186" r="4" fill="#A37C3F"/><circle cx="58" cy="198" r="4" fill="#A37C3F"/><polygon points="170,118 178,118 178,242 170,242" fill="#5C3010"/><circle cx="174" cy="120" r="14" fill="none" stroke="#C9A436" stroke-width="2"/><circle cx="174" cy="100" r="8" fill="none" stroke="#C9A436" stroke-width="2"/></svg>`;}
-function svgFisher(){return `<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="fish-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#4A8B9C" stop-opacity=".15"/><stop offset="100%" stop-color="#4A8B9C" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#fish-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#0F2530"/><polygon points="52,140 100,140 94,250 38,250" fill="#1A3A4A"/><polygon points="100,140 148,140 162,250 94,250" fill="#08151E"/><polygon points="60,170 140,170 142,180 58,180" fill="#1A4050"/><polygon points="50,200 150,200 152,210 48,210" fill="#4A8B9C" opacity=".4"/><polygon points="48,220 152,220 154,230 46,230" fill="#4A8B9C" opacity=".4"/><polygon points="38,150 52,140 56,212 42,214" fill="#0F2530"/><polygon points="162,150 148,140 144,212 158,214" fill="#0F2530"/><polygon points="78,82 122,82 130,134 70,134" fill="#C07A48"/><polygon points="78,82 100,82 96,134 70,134" fill="#A86028"/><polygon points="100,82 122,82 130,134 96,134" fill="#C07A48"/><polygon points="68,82 132,82 128,70 72,70" fill="#4A8B9C"/><polygon points="68,82 100,82 96,70 72,70" fill="#5A9BAC"/><polygon points="84,102 94,102 92,108 86,108" fill="#0A1810"/><polygon points="106,102 116,102 114,108 108,108" fill="#0A1810"/><polygon points="84,122 116,122 112,132 88,132" fill="#7A3818"/><polygon points="84,122 100,122 96,132 88,132" fill="#5A2010"/><polygon points="170,140 178,140 178,250 170,250" fill="#5C3010"/><polygon points="174,140 168,118 180,118" fill="#AAA"/><polygon points="174,140 168,118 174,118" fill="#888"/></svg>`;}
-function kamonBushi(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M30 8 L34 26 L52 30 L34 34 L30 52 L26 34 L8 30 L26 26 Z" fill="currentColor"/></svg>`;}
-function kamonKuge(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><circle cx="30" cy="30" r="6"/><ellipse cx="30" cy="14" rx="5" ry="9"/><ellipse cx="30" cy="46" rx="5" ry="9"/><ellipse cx="14" cy="30" rx="9" ry="5"/><ellipse cx="46" cy="30" rx="9" ry="5"/><ellipse cx="18" cy="18" rx="5" ry="9" transform="rotate(-45 18 18)"/><ellipse cx="42" cy="42" rx="5" ry="9" transform="rotate(-45 42 42)"/><ellipse cx="42" cy="18" rx="5" ry="9" transform="rotate(45 42 18)"/><ellipse cx="18" cy="42" rx="5" ry="9" transform="rotate(45 18 42)"/></g></svg>`;}
-function kamonShinto(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><path d="M30 12 Q22 24 30 30 Q38 24 30 12 Z"/><path d="M30 30 Q22 42 30 48 Q38 42 30 30 Z"/><path d="M30 30 Q12 22 30 30 Q12 38 30 30" transform="rotate(120 30 30)"/><path d="M30 30 Q12 22 30 30 Q12 38 30 30" transform="rotate(240 30 30)"/></g></svg>`;}
-function kamonMerchant(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="30,8 52,22 52,38 30,52 8,38 8,22" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="30,18 42,25 42,35 30,42 18,35 18,25" fill="currentColor"/></svg>`;}
-function kamonFarmer(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><path d="M30 10 Q26 20 30 28 Q34 20 30 10"/><path d="M18 18 Q22 26 28 30 Q22 22 18 18"/><path d="M42 18 Q38 26 32 30 Q38 22 42 18"/><path d="M30 30 Q26 38 22 48 Q30 42 30 30"/><path d="M30 30 Q34 38 38 48 Q30 42 30 30"/><circle cx="30" cy="30" r="3"/></g></svg>`;}
-function kamonJizamurai(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><path d="M30 8 L36 24 L52 30 L36 36 L30 52 L24 36 L8 30 L24 24 Z" opacity=".3"/><circle cx="30" cy="30" r="10"/><path d="M30 18 L34 30 L30 42 L26 30 Z" fill="#000"/></g></svg>`;}
-function kamonCraftsman(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="none" stroke="currentColor" stroke-width="3"><rect x="14" y="14" width="32" height="32"/><line x1="14" y1="14" x2="46" y2="46"/><line x1="46" y1="14" x2="14" y2="46"/></g></svg>`;}
-function kamonMonk(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><path d="M30 14 Q18 18 18 30 Q22 26 30 26 Q38 26 42 30 Q42 18 30 14 Z"/><path d="M16 32 Q24 36 30 36 Q36 36 44 32 Q40 44 30 46 Q20 44 16 32 Z"/><circle cx="30" cy="30" r="3"/></g></svg>`;}
-function kamonFisher(){return `<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="none" stroke="currentColor" stroke-width="2"><path d="M8 24 Q18 18 30 24 Q42 30 52 24"/><path d="M8 32 Q18 26 30 32 Q42 38 52 32"/><path d="M8 40 Q18 34 30 40 Q42 46 52 40"/></g></svg>`;}
+
+function svgBushi(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="bushi-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#B71C2C" stop-opacity=".15"/><stop offset="100%" stop-color="#B71C2C" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#bushi-bg)"/><polygon points="76,232 96,232 92,260 80,260" fill="#1A0408"/><polygon points="104,232 124,232 120,260 108,260" fill="#1A0408"/><polygon points="76,232 96,232 88,232" fill="#0A0204"/><polygon points="104,232 124,232 116,232" fill="#0A0204"/><polygon points="60,140 140,140 148,232 52,232" fill="#2A080C"/><polygon points="60,140 100,140 92,232 52,232" fill="#3D0A12"/><polygon points="100,140 140,140 148,232 92,232" fill="#1A0408"/><polygon points="60,140 140,140 134,158 66,158" fill="#B71C2C"/><polygon points="100,140 140,140 134,158 100,158" fill="#8B0E1A"/><polygon points="68,170 96,170 92,205 72,205" fill="#1A0408" stroke="#B71C2C" stroke-width="1"/><polygon points="104,170 132,170 128,205 108,205" fill="#1A0408" stroke="#B71C2C" stroke-width="1"/><polygon points="36,148 60,140 60,180 42,178" fill="#1A0408"/><polygon points="164,148 140,140 140,180 158,178" fill="#1A0408"/><polygon points="30,170 50,170 46,210 34,208" fill="#2A080C"/><polygon points="170,170 150,170 154,210 166,208" fill="#2A080C"/><polygon points="78,80 122,80 132,134 68,134" fill="#E8C8A4"/><polygon points="78,80 100,80 96,134 68,134" fill="#D4B088"/><polygon points="100,80 122,80 132,134 96,134" fill="#E8C8A4"/><polygon points="62,80 100,42 138,80 132,90 100,72 68,90" fill="#1A0408"/><polygon points="62,80 100,42 100,72 68,90" fill="#3D0A12"/><polygon points="100,42 138,80 132,90 100,72" fill="#1A0408"/><polygon points="68,90 132,90 128,108 72,108" fill="#B71C2C"/><polygon points="68,90 100,90 96,108 72,108" fill="#8B0E1A"/><polygon points="92,42 108,42 104,18 96,18" fill="#FFD700"/><polygon points="92,42 100,42 96,18" fill="#D4AF37"/><polygon points="84,108 96,108 94,114 86,114" fill="#0A0010"/><polygon points="104,108 116,108 114,114 106,114" fill="#0A0010"/><polygon points="80,118 96,118 96,124 80,124" fill="#5C3317"/><polygon points="104,118 120,118 120,124 104,124" fill="#5C3317"/><polygon points="92,128 108,128 104,134 96,134" fill="#A06050"/><polygon points="170,160 178,160 176,236 168,236" fill="#1A0408"/><polygon points="170,160 174,160 172,236 168,236" fill="#0A0204"/><polygon points="166,184 182,184 180,196 168,196" fill="#FFD700"/><polygon points="170,148 178,148 176,160 168,160" fill="#8B6914"/></svg>`;}
+function svgKuge(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="kuge-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#7C4DCC" stop-opacity=".15"/><stop offset="100%" stop-color="#7C4DCC" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#kuge-bg)"/><polygon points="50,140 150,140 168,250 32,250" fill="#3B1F6E"/><polygon points="50,140 100,140 92,250 32,250" fill="#4A2A82"/><polygon points="100,140 150,140 168,250 92,250" fill="#2D1758"/><polygon points="60,140 140,140 132,180 68,180" fill="#7C4DCC"/><polygon points="60,140 100,140 96,180 68,180" fill="#9166DC"/><polygon points="60,180 140,180 144,196 56,196" fill="#FFD700"/><polygon points="60,180 100,180 100,196 56,196" fill="#D4AF37"/><polygon points="32,150 50,140 56,210 38,212" fill="#3B1F6E"/><polygon points="168,150 150,140 144,210 162,212" fill="#3B1F6E"/><polygon points="20,200 38,212 42,222 26,224" fill="#7C4DCC" opacity=".7"/><polygon points="180,200 162,212 158,222 174,224" fill="#7C4DCC" opacity=".7"/><polygon points="78,82 122,82 130,134 70,134" fill="#F4D8B8"/><polygon points="78,82 100,82 96,134 70,134" fill="#E0C4A0"/><polygon points="100,82 122,82 130,134 96,134" fill="#F4D8B8"/><polygon points="80,82 120,82 116,68 84,68" fill="#0A0010"/><polygon points="80,82 100,82 96,68 84,68" fill="#1A0028"/><polygon points="92,68 108,68 104,28 100,16 96,28" fill="#0A0010"/><polygon points="92,68 100,68 96,28" fill="#1A0028"/><polygon points="84,98 94,98 92,104 86,104" fill="#2A1A0A"/><polygon points="106,98 116,98 114,104 108,104" fill="#2A1A0A"/><polygon points="92,120 108,120 104,126 96,126" fill="#C09070"/><polygon points="146,134 184,76 192,82 152,140" fill="#9166DC"/><polygon points="146,134 168,108 192,82 178,118" fill="#7C4DCC"/><polygon points="146,134 184,76 188,80" fill="#5A3299" opacity=".5"/></svg>`;}
+function svgShinto(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="shinto-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#D14831" stop-opacity=".15"/><stop offset="100%" stop-color="#D14831" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#shinto-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#F0EBE0"/><polygon points="52,140 100,140 94,250 38,250" fill="#FAFAF0"/><polygon points="100,140 148,140 162,250 94,250" fill="#E0DCD0"/><polygon points="60,140 140,140 134,182 66,182" fill="#D14831"/><polygon points="60,140 100,140 96,182 66,182" fill="#E85838"/><polygon points="100,140 140,140 134,182 96,182" fill="#A8341C"/><polygon points="38,150 52,140 56,210 42,214" fill="#F0EBE0"/><polygon points="162,150 148,140 144,210 158,214" fill="#F0EBE0"/><polygon points="78,82 122,82 130,134 70,134" fill="#F4C8A0"/><polygon points="78,82 100,82 96,134 70,134" fill="#DBB088"/><polygon points="100,82 122,82 130,134 96,134" fill="#F4C8A0"/><polygon points="76,80 124,80 122,72 78,72" fill="#0A0A0A"/><polygon points="92,72 108,72 106,40 94,40" fill="#0A0A0A"/><polygon points="92,40 108,40 104,18 96,18" fill="#1A1A1A"/><polygon points="84,98 94,98 92,104 86,104" fill="#0A0A0A"/><polygon points="106,98 116,98 114,104 108,104" fill="#0A0A0A"/><polygon points="92,120 108,120 104,126 96,126" fill="#A06850"/><polygon points="170,140 178,140 176,236 168,236" fill="#8B6914"/><polygon points="158,142 190,142 184,158 176,154 168,158 162,154" fill="#FFFFFF"/><polygon points="158,142 174,142 172,158 162,154" fill="#F0F0F0"/><polygon points="158,156 190,156 184,172 176,168 168,172 162,168" fill="#FFFFFF"/></svg>`;}
+function svgMerchant(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="merc-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#C9A436" stop-opacity=".15"/><stop offset="100%" stop-color="#C9A436" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#merc-bg)"/><polygon points="50,140 150,140 168,250 32,250" fill="#1A2418"/><polygon points="50,140 100,140 92,250 32,250" fill="#243228"/><polygon points="100,140 150,140 168,250 92,250" fill="#0F1810"/><circle cx="100" cy="180" r="14" fill="none" stroke="#C9A436" stroke-width="2"/><polygon points="100,170 108,180 100,190 92,180" fill="#C9A436"/><polygon points="32,150 50,140 54,212 36,214" fill="#1A2418"/><polygon points="168,150 150,140 146,212 164,214" fill="#1A2418"/><polygon points="78,82 122,82 130,134 70,134" fill="#D4A578"/><polygon points="78,82 100,82 96,134 70,134" fill="#BC8E60"/><polygon points="100,82 122,82 130,134 96,134" fill="#D4A578"/><polygon points="68,76 132,76 128,62 72,62" fill="#1A0E00"/><polygon points="68,76 100,76 96,62 72,62" fill="#2A1A08"/><polygon points="74,62 126,62 124,48 76,48" fill="#2A1A00"/><polygon points="84,98 94,98 92,103 86,103" fill="#2A1000"/><polygon points="106,98 116,98 114,103 108,103" fill="#2A1000"/><polygon points="86,118 114,118 110,128 90,128" fill="#A06030"/><polygon points="86,118 100,118 98,128 90,128" fill="#8A4820"/><polygon points="22,140 44,140 44,200 22,200" fill="#5C3010"/><polygon points="22,140 33,140 33,200 22,200" fill="#3D1F08"/><polygon points="22,156 44,156 44,160 22,160" fill="#2A1408"/><polygon points="22,176 44,176 44,180 22,180" fill="#2A1408"/><circle cx="28" cy="148" r="3" fill="#C9A436"/><circle cx="38" cy="148" r="3" fill="#C9A436"/><circle cx="28" cy="168" r="3" fill="#C9A436"/><circle cx="28" cy="188" r="3" fill="#C9A436"/><circle cx="38" cy="188" r="3" fill="#C9A436"/></svg>`;}
+function svgFarmer(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="farm-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#A37C3F" stop-opacity=".15"/><stop offset="100%" stop-color="#A37C3F" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#farm-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#5C3D1A"/><polygon points="52,140 100,140 94,250 38,250" fill="#704A20"/><polygon points="100,140 148,140 162,250 94,250" fill="#42280A"/><polygon points="60,178 140,178 142,188 58,188" fill="#3B1E08"/><polygon points="38,150 52,140 56,212 42,214" fill="#5C3D1A"/><polygon points="162,150 148,140 144,212 158,214" fill="#5C3D1A"/><polygon points="78,82 122,82 130,134 70,134" fill="#B07848"/><polygon points="78,82 100,82 96,134 70,134" fill="#965E2E"/><polygon points="100,82 122,82 130,134 96,134" fill="#B07848"/><polygon points="50,72 150,72 130,82 70,82" fill="#C9A436"/><polygon points="50,72 100,72 100,82 70,82" fill="#A8841A"/><polygon points="100,72 150,72 130,82 100,82" fill="#8E6A14"/><polygon points="84,98 94,98 92,104 86,104" fill="#1A0800"/><polygon points="106,98 116,98 114,104 108,104" fill="#1A0800"/><polygon points="84,118 116,118 110,130 90,130" fill="#7A4020"/><polygon points="84,118 100,118 96,130 90,130" fill="#5A2810"/><polygon points="172,140 178,140 178,250 172,250" fill="#5C3010"/><polygon points="158,140 188,140 184,160 162,160" fill="#888"/><polygon points="158,140 173,140 173,160 162,160" fill="#666"/><polygon points="158,140 188,140 184,144 162,144" fill="#AAA"/></svg>`;}
+function svgJizamurai(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="jiz-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#A8421C" stop-opacity=".15"/><stop offset="100%" stop-color="#A8421C" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#jiz-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#1A0A05"/><polygon points="52,140 100,140 94,250 38,250" fill="#28120A"/><polygon points="100,140 148,140 162,250 94,250" fill="#0F0500"/><polygon points="60,140 140,140 134,156 66,156" fill="#A8421C"/><polygon points="60,140 100,140 96,156 66,156" fill="#C2521E"/><polygon points="68,166 96,166 92,202 72,202" fill="#28120A" stroke="#A8421C" stroke-width="1"/><polygon points="104,166 132,166 128,202 108,202" fill="#28120A" stroke="#A8421C" stroke-width="1"/><polygon points="38,150 52,140 56,210 42,214" fill="#1A0A05"/><polygon points="162,150 148,140 144,210 158,214" fill="#1A0A05"/><polygon points="78,82 122,82 130,134 70,134" fill="#C8966A"/><polygon points="78,82 100,82 96,134 70,134" fill="#A87850"/><polygon points="100,82 122,82 130,134 96,134" fill="#C8966A"/><polygon points="68,84 132,84 128,68 72,68" fill="#1A0A05"/><polygon points="68,84 100,84 96,68 72,68" fill="#2A1410"/><polygon points="84,68 116,68 114,52 86,52" fill="#1A0A05"/><polygon points="78,92 122,92 120,98 80,98" fill="#A8421C"/><polygon points="84,102 94,102 92,108 86,108" fill="#0A0500"/><polygon points="106,102 116,102 114,108 108,108" fill="#0A0500"/><polygon points="86,122 114,122 110,128 90,128" fill="#7A3818"/><polygon points="170,118 178,118 178,242 170,242" fill="#5C3010"/><polygon points="160,118 188,118 184,140 164,140" fill="#AAA"/><polygon points="160,118 173,118 173,140 164,140" fill="#888"/></svg>`;}
+function svgCraftsman(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="craft-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#3D6B8E" stop-opacity=".15"/><stop offset="100%" stop-color="#3D6B8E" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#craft-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#0F1E38"/><polygon points="52,140 100,140 94,250 38,250" fill="#1A2E50"/><polygon points="100,140 148,140 162,250 94,250" fill="#08152A"/><polygon points="64,156 136,156 138,242 62,242" fill="#3D6B8E"/><polygon points="64,156 100,156 96,242 62,242" fill="#4D7B9E"/><polygon points="100,156 136,156 138,242 96,242" fill="#2D5B7E"/><polygon points="38,150 52,140 56,212 42,214" fill="#0F1E38"/><polygon points="162,150 148,140 144,212 158,214" fill="#0F1E38"/><polygon points="78,82 122,82 130,134 70,134" fill="#F0C898"/><polygon points="78,82 100,82 96,134 70,134" fill="#D4AC78"/><polygon points="100,82 122,82 130,134 96,134" fill="#F0C898"/><polygon points="68,82 132,82 128,72 72,72" fill="#3D6B8E"/><polygon points="68,82 100,82 96,72 72,72" fill="#4D7B9E"/><polygon points="84,100 94,100 92,106 86,106" fill="#0A1030"/><polygon points="106,100 116,100 114,106 108,106" fill="#0A1030"/><polygon points="86,120 114,120 110,128 90,128" fill="#A07848"/><polygon points="20,128 32,128 32,200 20,200" fill="#5C3010"/><polygon points="20,128 26,128 26,200 20,200" fill="#3D1F08"/><polygon points="14,118 38,118 38,134 14,134" fill="#888"/><polygon points="14,118 26,118 26,134 14,134" fill="#666"/></svg>`;}
+function svgMonk(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="monk-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#8B7B6A" stop-opacity=".15"/><stop offset="100%" stop-color="#8B7B6A" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#monk-bg)"/><polygon points="48,140 152,140 168,250 32,250" fill="#1A1612"/><polygon points="48,140 100,140 92,250 32,250" fill="#2A241E"/><polygon points="100,140 152,140 168,250 92,250" fill="#0F0C08"/><polygon points="60,140 140,140 134,184 66,184" fill="#A37C3F"/><polygon points="60,140 100,140 96,184 66,184" fill="#B88C50"/><polygon points="100,140 140,140 134,184 96,184" fill="#8E682E"/><polygon points="32,154 48,140 52,212 36,214" fill="#1A1612"/><polygon points="168,154 152,140 148,212 164,214" fill="#1A1612"/><polygon points="78,82 122,82 130,134 70,134" fill="#D4A878"/><polygon points="78,82 100,82 96,134 70,134" fill="#B88858"/><polygon points="100,82 122,82 130,134 96,134" fill="#D4A878"/><polygon points="76,82 124,82 122,68 78,68" fill="#C89058"/><polygon points="84,100 94,100 92,106 86,106" fill="#2A1008"/><polygon points="106,100 116,100 114,106 108,106" fill="#2A1008"/><polygon points="92,122 108,122 104,128 96,128" fill="#A06840"/><circle cx="32" cy="156" r="4" fill="#A37C3F"/><circle cx="38" cy="172" r="4" fill="#A37C3F"/><circle cx="46" cy="186" r="4" fill="#A37C3F"/><circle cx="58" cy="198" r="4" fill="#A37C3F"/><polygon points="170,118 178,118 178,242 170,242" fill="#5C3010"/><circle cx="174" cy="120" r="14" fill="none" stroke="#C9A436" stroke-width="2"/><circle cx="174" cy="100" r="8" fill="none" stroke="#C9A436" stroke-width="2"/></svg>`;}
+function svgFisher(){return`<svg viewBox="0 0 200 280" width="180" height="252"><defs><linearGradient id="fish-bg" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#4A8B9C" stop-opacity=".15"/><stop offset="100%" stop-color="#4A8B9C" stop-opacity="0"/></linearGradient></defs><ellipse cx="100" cy="252" rx="68" ry="14" fill="url(#fish-bg)"/><polygon points="52,140 148,140 162,250 38,250" fill="#0F2530"/><polygon points="52,140 100,140 94,250 38,250" fill="#1A3A4A"/><polygon points="100,140 148,140 162,250 94,250" fill="#08151E"/><polygon points="60,170 140,170 142,180 58,180" fill="#1A4050"/><polygon points="50,200 150,200 152,210 48,210" fill="#4A8B9C" opacity=".4"/><polygon points="48,220 152,220 154,230 46,230" fill="#4A8B9C" opacity=".4"/><polygon points="38,150 52,140 56,212 42,214" fill="#0F2530"/><polygon points="162,150 148,140 144,212 158,214" fill="#0F2530"/><polygon points="78,82 122,82 130,134 70,134" fill="#C07A48"/><polygon points="78,82 100,82 96,134 70,134" fill="#A86028"/><polygon points="100,82 122,82 130,134 96,134" fill="#C07A48"/><polygon points="68,82 132,82 128,70 72,70" fill="#4A8B9C"/><polygon points="68,82 100,82 96,70 72,70" fill="#5A9BAC"/><polygon points="84,102 94,102 92,108 86,108" fill="#0A1810"/><polygon points="106,102 116,102 114,108 108,108" fill="#0A1810"/><polygon points="84,122 116,122 112,132 88,132" fill="#7A3818"/><polygon points="84,122 100,122 96,132 88,132" fill="#5A2010"/><polygon points="170,140 178,140 178,250 170,250" fill="#5C3010"/><polygon points="174,140 168,118 180,118" fill="#AAA"/><polygon points="174,140 168,118 174,118" fill="#888"/></svg>`;}
+
+// ── 家紋（カテゴリーアイコン）──
+function kamonBushi(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M30 8 L34 26 L52 30 L34 34 L30 52 L26 34 L8 30 L26 26 Z" fill="currentColor"/></svg>`;}
+function kamonKuge(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><circle cx="30" cy="30" r="6"/><ellipse cx="30" cy="14" rx="5" ry="9"/><ellipse cx="30" cy="46" rx="5" ry="9"/><ellipse cx="14" cy="30" rx="9" ry="5"/><ellipse cx="46" cy="30" rx="9" ry="5"/><ellipse cx="18" cy="18" rx="5" ry="9" transform="rotate(-45 18 18)"/><ellipse cx="42" cy="42" rx="5" ry="9" transform="rotate(-45 42 42)"/><ellipse cx="42" cy="18" rx="5" ry="9" transform="rotate(45 42 18)"/><ellipse cx="18" cy="42" rx="5" ry="9" transform="rotate(45 18 42)"/></g></svg>`;}
+function kamonShinto(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><path d="M30 12 Q22 24 30 30 Q38 24 30 12 Z"/><path d="M30 30 Q22 42 30 48 Q38 42 30 30 Z"/><path d="M30 30 Q12 22 30 30 Q12 38 30 30" transform="rotate(120 30 30)"/><path d="M30 30 Q12 22 30 30 Q12 38 30 30" transform="rotate(240 30 30)"/></g></svg>`;}
+function kamonMerchant(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><polygon points="30,8 52,22 52,38 30,52 8,38 8,22" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="30,18 42,25 42,35 30,42 18,35 18,25" fill="currentColor"/></svg>`;}
+function kamonFarmer(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><path d="M30 10 Q26 20 30 28 Q34 20 30 10"/><path d="M18 18 Q22 26 28 30 Q22 22 18 18"/><path d="M42 18 Q38 26 32 30 Q38 22 42 18"/><path d="M30 30 Q26 38 22 48 Q30 42 30 30"/><path d="M30 30 Q34 38 38 48 Q30 42 30 30"/><circle cx="30" cy="30" r="3"/></g></svg>`;}
+function kamonJizamurai(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><path d="M30 8 L36 24 L52 30 L36 36 L30 52 L24 36 L8 30 L24 24 Z" opacity=".3"/><circle cx="30" cy="30" r="10"/><path d="M30 18 L34 30 L30 42 L26 30 Z" fill="#000"/></g></svg>`;}
+function kamonCraftsman(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="none" stroke="currentColor" stroke-width="3"><rect x="14" y="14" width="32" height="32"/><line x1="14" y1="14" x2="46" y2="46"/><line x1="46" y1="14" x2="14" y2="46"/></g></svg>`;}
+function kamonMonk(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><path d="M30 14 Q18 18 18 30 Q22 26 30 26 Q38 26 42 30 Q42 18 30 14 Z"/><path d="M16 32 Q24 36 30 36 Q36 36 44 32 Q40 44 30 46 Q20 44 16 32 Z"/><circle cx="30" cy="30" r="3"/></g></svg>`;}
+function kamonFisher(){return`<svg viewBox="0 0 60 60" width="100%" height="100%"><circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="none" stroke="currentColor" stroke-width="2"><path d="M8 24 Q18 18 30 24 Q42 30 52 24"/><path d="M8 32 Q18 26 30 32 Q42 38 52 32"/><path d="M8 40 Q18 34 30 40 Q42 46 52 40"/></g></svg>`;}
+
 // 初期化
 const catRow=document.getElementById("cat-row");
 Object.entries(CATS).forEach(([n,c])=>{const s=document.createElement("span");s.className="cat-chip";s.innerHTML=`<span style="display:inline-block;width:14px;height:14px;color:${c.color};vertical-align:middle;margin-right:4px">${c.kamon}</span>${n}`;s.style.color=c.color;s.style.borderColor=c.color+"55";s.style.background=c.color+"12";catRow.appendChild(s);});
+
+// ランディングページの9カテゴリーグリッド
+const catGrid=document.getElementById("cat-grid");
+if(catGrid){
+  Object.entries(CATS).forEach(([n,c])=>{
+    const item=document.createElement("div");
+    item.className="cat-grid-item";
+    item.style.borderColor=c.color+"55";
+    item.style.background=`linear-gradient(160deg,${c.color}15,${c.color}05)`;
+    item.innerHTML=`<div class="cat-grid-icon" style="color:${c.color}">${c.kamon}</div><div class="cat-grid-name" style="color:${c.color}">${n}</div>`;
+    catGrid.appendChild(item);
+  });
+}
 const exEl=document.getElementById("examples");
 EXAMPLES.forEach(e=>{const s=document.createElement("span");s.className="example";s.textContent=e;s.onclick=()=>{document.getElementById("inp").value=e;chk();};exEl.appendChild(s);});
+
 function chk(){document.getElementById("btn-go").disabled=!document.getElementById("inp").value.trim();}
 function show(id){["s-input","s-load","s-result"].forEach(p=>document.getElementById(p).classList.toggle("hidden",p!==id));const bar=document.getElementById("fixed-bar");if(bar)bar.classList.toggle("hidden",id!=="s-result");}
+
 let saved=null;
+
 async function go(){
   const myoji=document.getElementById("inp").value.trim();if(!myoji)return;
   document.getElementById("load-name").textContent=myoji+" 家";
   document.getElementById("err").classList.add("hidden");
   show("s-load");
+
+  // 名言データ
   const QUOTES=[
     {q:"血は水よりも濃し",by:"日本古諺"},
     {q:"祖先の徳は子孫に及ぶ",by:"中国古典"},
@@ -298,6 +756,8 @@ async function go(){
   const quote=QUOTES[Math.floor(Math.random()*QUOTES.length)];
   document.getElementById("load-quote").textContent="「"+quote.q+"」";
   document.getElementById("load-quote-by").textContent="― "+quote.by;
+
+  // プログレスバー演出
   const bar=document.getElementById("load-bar");
   const pct=document.getElementById("load-percent");
   const status=document.getElementById("load-status");
@@ -327,6 +787,8 @@ async function go(){
       }
     }
   },280);
+
+  // 名言を途中で切り替え
   let quoteIdx=QUOTES.indexOf(quote);
   const quoteTick=setInterval(()=>{
     quoteIdx=(quoteIdx+1)%QUOTES.length;
@@ -338,15 +800,20 @@ async function go(){
       qWrap.style.opacity="1";
     },400);
   },4500);
+
+  const prompt=null; // 不要
   try{
     const res=await fetch("/.netlify/functions/divine",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({myoji:myoji})});
     const data=await res.json();
     const r=JSON.parse(data.content.filter(b=>b.type==="text").map(b=>b.text).join("").replace(/```json|```/g,"").trim());
+
+    // プログレス完了演出
     clearInterval(tick);
     clearInterval(quoteTick);
     bar.style.width="100%";pct.textContent="100%";
     status.style.opacity="0";
     setTimeout(()=>{status.textContent="鑑定完了";status.style.opacity="1";},200);
+
     saved={myoji,r};
     setTimeout(()=>{render(myoji,r);show("s-result");window.scrollTo(0,0);},600);
   }catch(e){
@@ -357,6 +824,7 @@ async function go(){
     document.getElementById("err").classList.remove("hidden");
   }
 }
+
 function render(myoji,r){
   const cat=CATS[r.category]||CATS["侍"];
   const ani=ANIMALS[r.animal]||{e:"🐉",t:"傑物"};
@@ -390,12 +858,68 @@ function render(myoji,r){
   (r.lineage||[]).forEach(l=>{const d=document.createElement("div");d.className="lineage-row";const h=RANK_H[l.rank]||40;d.innerHTML=`<span class="lineage-era">${l.era}</span><div class="lineage-track"><div class="lineage-fill" style="width:${h}%;background:linear-gradient(to right,${c}66,${c})"></div></div><span class="lineage-note">${l.note}</span>`;lc.appendChild(d);});
   const mc=document.getElementById("msg-card");mc.style.background=`linear-gradient(145deg,${cat.bg.match(/#\w+/g)[0]||"#111"},${cat.bg.match(/#\w+/g)[1]||"#222"})`;
   document.getElementById("r-msg").textContent=r.message;
+
+  // 1024人の先祖
+  const popEl=document.getElementById("r-population");
+  if(popEl && r.population){
+    popEl.textContent=Number(r.population).toLocaleString("ja-JP");
+  } else if(popEl){
+    popEl.textContent="—";
+  }
+  const mypEl=document.getElementById("r-myoji-pop");
+  if(mypEl)mypEl.textContent=myoji;
+
+  // 1024個のドットを描画（先祖の数を可視化）
+  const dotsEl=document.getElementById("ancestors-dots");
+  if(dotsEl){
+    dotsEl.innerHTML="";
+    for(let i=0;i<1024;i++){
+      const d=document.createElement("div");
+      d.className="dot";
+      d.style.animationDelay=(i*0.5/1024)+"s";
+      dotsEl.appendChild(d);
+    }
+  }
+
+  // 漫画パネルを描画
+  const mangaEl=document.getElementById("manga-panels");
+  if(mangaEl){
+    mangaEl.innerHTML="";
+    // 各パネルの大きな漢字（情景を表す1文字）
+    const kanjiByPanel=[
+      {kanji:"覚",sub:"KAKUGO"},
+      {kanji:"決",sub:"KETSUDAN"},
+      {kanji:"継",sub:"KEISHOU"},
+      {kanji:myoji,sub:"YOU"}
+    ];
+    (r.manga||[]).forEach((p,i)=>{
+      const isFinal=i===(r.manga.length-1);
+      const k=kanjiByPanel[i]||{kanji:"魂",sub:""};
+      const panel=document.createElement("div");
+      panel.className="manga-panel"+(isFinal?" final":"");
+      panel.innerHTML=`
+        <span class="manga-panel-num">${i+1}</span>
+        <div class="manga-panel-image">
+          <div class="manga-speed-lines"></div>
+          <div class="manga-panel-kanji">
+            ${k.kanji}
+            <div class="manga-panel-kanji-sub">${k.sub}</div>
+          </div>
+          ${p.dialogue?`<div class="manga-bubble top-left">${p.dialogue}</div>`:""}
+          <div class="manga-panel-scene">${p.scene||""}</div>
+        </div>
+        <div class="manga-narration">${p.narration||""}</div>
+      `;
+      mangaEl.appendChild(panel);
+    });
+  }
 }
+
 function getShareText(platform){
   if(!saved)return"";
   const{myoji,r}=saved;const ani=ANIMALS[r.animal]||{e:"🐉"};
-  if(platform==="x")return `${ani.e}【先祖占い】${myoji}家の鑑定結果\n\n${r.category}の末裔\n「${r.headline}」\n\n守護動物：${r.animal} / 氏族：${r.clan}\n\n#先祖占い #苗字ルーツ #${myoji}家 senzo.me`;
-  return `【先祖占い】${myoji}家の鑑定結果\n\n${ani.e} ${r.category}の末裔\n「${r.headline}」\n\n${r.story}\n\n守護動物：${r.animal}\n氏族：${r.clan}\n\n#先祖占い #苗字ルーツ #${myoji}家 senzo.me`;
+  if(platform==="x")return`${ani.e}【先祖占い】${myoji}家の鑑定結果\n\n${r.category}の末裔\n「${r.headline}」\n\n守護動物：${r.animal} / 氏族：${r.clan}\n\n#先祖占い #苗字ルーツ #${myoji}家 senzo.me`;
+  return`【先祖占い】${myoji}家の鑑定結果\n\n${ani.e} ${r.category}の末裔\n「${r.headline}」\n\n${r.story}\n\n守護動物：${r.animal}\n氏族：${r.clan}\n\n#先祖占い #苗字ルーツ #${myoji}家 senzo.me`;
 }
 function shareX(){if(!saved)return;window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent(getShareText("x")),"_blank","noopener");}
 function showIgModal(){document.getElementById("ig-modal").classList.remove("hidden");}
