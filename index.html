@@ -801,21 +801,22 @@ async function go(){
     },400);
   },4500);
 
-  const prompt=null; // 不要
   try{
     const res=await fetch("/.netlify/functions/divine",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({myoji:myoji})});
-    const data=await res.json();
+    let data;
+    try{data=await res.json();}catch(jsonErr){
+      console.error("API JSON parse error:",jsonErr);
+      throw new Error("API応答の解析に失敗");
+    }
     if(!res.ok || data.error){
       throw new Error(data.error||("HTTP "+res.status));
     }
-    if(!data.content||!Array.isArray(data.content)){
+    const r=data.result;
+    if(!r||typeof r!=="object"){
       throw new Error("APIレスポンス形式が不正");
     }
-    const rawText=data.content.filter(b=>b.type==="text").map(b=>b.text).join("").replace(/```json|```/g,"").trim();
-    let r;
-    try{r=JSON.parse(rawText);}catch(parseErr){
-      console.error("JSON parse error:",parseErr,"Raw:",rawText);
-      throw new Error("AI応答の解析に失敗");
+    if(!Array.isArray(r.talents)||!Array.isArray(r.lineage)||!Array.isArray(r.manga)){
+      throw new Error("鑑定結果の形式が不正");
     }
 
     // プログレス完了演出
