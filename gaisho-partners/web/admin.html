@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GAISHO PARTNERS Cloud — Admin Console</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111;
+    --gold: #C9A961;
+    --gold-soft: rgba(201,169,97,.5);
+    --gold-faint: rgba(201,169,97,.08);
+    --text: #F5F1E8;
+    --sub: rgba(245,241,232,.55);
+    --line: rgba(245,241,232,.10);
+    --line-strong: rgba(245,241,232,.18);
+    --danger: #C97A6B;
+    --success: #8FCB8F;
+  }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Noto Serif JP', serif; font-weight: 300; }
+  .serif-en { font-family: 'Playfair Display', serif; letter-spacing: .04em; }
+  .tabular { font-variant-numeric: tabular-nums lining-nums; }
+  .gold { color: var(--gold); }
+  .eyebrow { font-size: 10px; letter-spacing: .3em; color: var(--gold); }
+  .navlink { display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: var(--sub); border-left: 2px solid transparent; transition: all .15s; cursor: pointer; }
+  .navlink:hover { color: var(--text); background: rgba(255,255,255,.02); }
+  .navlink.active { color: var(--gold); border-left-color: var(--gold); background: var(--gold-faint); }
+  .panel { background: var(--surface); border: 1px solid var(--line); padding: 24px; }
+  .badge { display: inline-flex; align-items: center; padding: 4px 10px; font-size: 10px; letter-spacing: .15em; border: 1px solid var(--line-strong); }
+  .badge.gold { border-color: var(--gold); color: var(--gold); }
+  .badge.success { border-color: var(--success); color: var(--success); }
+  .badge.warn { border-color: var(--gold); color: var(--gold); background: var(--gold-faint); }
+  .badge.danger { border-color: var(--danger); color: var(--danger); background: rgba(201,122,107,.08); }
+  .badge.muted { color: var(--sub); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border: 1px solid var(--gold); color: var(--gold); transition: all .2s; cursor: pointer; font-size: 13px; }
+  .btn:hover { background: var(--gold); color: var(--bg); }
+  .btn-fill { background: var(--gold); color: var(--bg); }
+  .btn-fill:hover { background: transparent; color: var(--gold); }
+  .btn-ghost { border-color: var(--line-strong); color: var(--sub); }
+  .btn-ghost:hover { border-color: var(--text); color: var(--text); }
+  .btn-danger { border-color: var(--danger); color: var(--danger); }
+  .btn-danger:hover { background: var(--danger); color: var(--bg); }
+  .page { display: none; }
+  .page.active { display: block; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 14px 12px; text-align: left; border-bottom: 1px solid var(--line); font-size: 13px; }
+  th { color: var(--sub); font-weight: 400; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; }
+  tr:hover td { background: rgba(255,255,255,.02); }
+  input, select { background: transparent; border: 1px solid var(--line); padding: 10px 14px; color: var(--text); font-family: inherit; }
+  input:focus { outline: none; border-color: var(--gold); }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; font-size: 11px; border: 1px solid var(--line-strong); color: var(--sub); cursor: pointer; }
+  .chip.active { border-color: var(--gold); color: var(--gold); }
+  .alert-row { display: flex; align-items: center; gap: 16px; padding: 16px; border-left: 2px solid var(--danger); background: rgba(201,122,107,.04); margin-bottom: 8px; }
+</style>
+</head>
+<body class="antialiased">
+
+<div class="flex h-screen overflow-hidden">
+
+<!-- SIDEBAR -->
+<aside class="w-64 border-r flex flex-col" style="border-color: var(--line); background: #0a0a0a;">
+  <div class="px-6 py-6" style="border-bottom: 1px solid var(--line);">
+    <p class="serif-en gold text-lg">GAISHO PARTNERS</p>
+    <p class="text-xs text-[color:var(--sub)] mt-1">Cloud / Admin Console</p>
+  </div>
+
+  <nav class="flex-1 py-4">
+    <div data-page="overview" class="navlink active"><span class="serif-en text-xs tabular w-6">01</span><span class="text-sm">概況</span></div>
+    <div data-page="partners" class="navlink"><span class="serif-en text-xs tabular w-6">02</span><span class="text-sm">パートナー審査</span></div>
+    <div data-page="deals" class="navlink"><span class="serif-en text-xs tabular w-6">03</span><span class="text-sm">全案件モニタリング</span></div>
+    <div data-page="commissions" class="navlink"><span class="serif-en text-xs tabular w-6">04</span><span class="text-sm">月次コミッション</span></div>
+    <div data-page="alerts" class="navlink"><span class="serif-en text-xs tabular w-6">05</span><span class="text-sm">不正検知</span></div>
+    <div data-page="audit" class="navlink"><span class="serif-en text-xs tabular w-6">06</span><span class="text-sm">監査ログ</span></div>
+  </nav>
+
+  <div class="px-6 py-4" style="border-top: 1px solid var(--line);">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-[color:var(--gold-faint)] border border-gold flex items-center justify-center serif-en gold tabular">KT</div>
+      <div class="text-xs">
+        <p class="text-sm">高橋 賢治</p>
+        <p class="text-[color:var(--sub)]">Admin / HQ</p>
+      </div>
+    </div>
+    <a href="dashboard.html" class="block text-xs text-[color:var(--sub)] mt-4 hover:text-[color:var(--gold)]">→ Partner Cloud</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="flex-1 overflow-y-auto">
+
+  <header class="px-10 py-5 flex items-center justify-between" style="border-bottom: 1px solid var(--line); background: rgba(10,10,10,.9); position: sticky; top:0; z-index: 10; backdrop-filter: blur(8px);">
+    <div>
+      <p class="eyebrow mb-1" id="page-eyebrow">SECTION 01</p>
+      <h1 class="text-xl" id="page-title">概況</h1>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="chip">JST <span id="clock" class="tabular gold">--:--</span></span>
+      <span class="chip">2026年 5月</span>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <section id="page-overview" class="page active px-10 py-8">
+    <div class="grid grid-cols-4 gap-px mb-8" style="background: var(--line);">
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">ACTIVE PARTNERS</p>
+        <p class="serif-en tabular gold text-4xl mb-1">186</p>
+        <p class="text-xs text-[color:var(--sub)]">前月比 +24</p>
+      </div>
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">PENDING KYC</p>
+        <p class="serif-en tabular text-4xl mb-1" style="color: var(--gold);">14</p>
+        <p class="text-xs text-[color:var(--sub)]">うち緊急 3 件</p>
+      </div>
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">MONTHLY GMV</p>
+        <p class="serif-en tabular gold text-4xl mb-1">¥218.4M</p>
+        <p class="text-xs text-[color:var(--sub)]">目標 ¥250M に対し 87%</p>
+      </div>
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">ALERTS</p>
+        <p class="serif-en tabular text-4xl mb-1" style="color: var(--danger);">02</p>
+        <p class="text-xs text-[color:var(--sub)]">要対応</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6">
+      <div class="col-span-2 panel">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="serif-en text-lg">Top Partners (MTD)</h2>
+          <span class="text-xs text-[color:var(--sub)]">5月累計</span>
+        </div>
+        <table>
+          <thead><tr><th>順位</th><th>パートナー</th><th>Tier</th><th class="text-right">成約数</th><th class="text-right">GMV</th><th class="text-right">コミッション</th></tr></thead>
+          <tbody id="top-partners"></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h2 class="serif-en text-lg mb-5">最近の活動</h2>
+        <div class="space-y-4 text-sm">
+          <div>
+            <p class="eyebrow mb-1">APPROVAL</p>
+            <p class="text-[color:var(--sub)] text-xs leading-relaxed">山岸さんのKYC審査を承認しました。</p>
+            <p class="text-[10px] text-[color:var(--sub)] mt-2">15分前 · 高橋</p>
+          </div>
+          <hr style="border-color: var(--line);">
+          <div>
+            <p class="eyebrow mb-1">PAYOUT</p>
+            <p class="text-[color:var(--sub)] text-xs leading-relaxed">4月分コミッション ¥34,820,000 を186名に支払いました。</p>
+            <p class="text-[10px] text-[color:var(--sub)] mt-2">5月15日 · 経理</p>
+          </div>
+          <hr style="border-color: var(--line);">
+          <div>
+            <p class="eyebrow mb-1" style="color: var(--danger);">ALERT</p>
+            <p class="text-[color:var(--sub)] text-xs leading-relaxed">パートナー ID:GP-0073 で 24h 内に通常の 4 倍の発注。</p>
+            <p class="text-[10px] text-[color:var(--sub)] mt-2">1時間前 · 自動検知</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section id="page-partners" class="page px-10 py-8">
+    <div class="flex gap-2 mb-6">
+      <button class="chip active">未審査 <span class="gold ml-1">14</span></button>
+      <button class="chip">承認済 <span class="ml-1">186</span></button>
+      <button class="chip">差戻 <span class="ml-1">7</span></button>
+      <button class="chip">拒否 <span class="ml-1">23</span></button>
+      <div class="flex-1"></div>
+      <input placeholder="名前・メールで検索" class="text-sm" />
+    </div>
+
+    <div class="panel" style="padding:0;">
+      <table>
+        <thead><tr><th>ID</th><th>名前</th><th>属性</th><th>想定顧客層</th><th>申込</th><th>状態</th><th class="text-right">操作</th></tr></thead>
+        <tbody id="partners-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- DEALS -->
+  <section id="page-deals" class="page px-10 py-8">
+    <div class="flex gap-2 mb-6">
+      <button class="chip active">すべて</button>
+      <button class="chip">見積中 <span class="gold ml-1">23</span></button>
+      <button class="chip">合意済 <span class="gold ml-1">18</span></button>
+      <button class="chip">調達中 <span class="ml-1">12</span></button>
+      <button class="chip">配送中 <span class="ml-1">8</span></button>
+      <button class="chip">納品済 <span class="ml-1">142</span></button>
+      <button class="chip" style="border-color: var(--danger); color: var(--danger);">アラート <span class="ml-1">2</span></button>
+    </div>
+
+    <div class="panel" style="padding:0;">
+      <table>
+        <thead><tr><th>案件ID</th><th>パートナー</th><th>顧客</th><th>商品</th><th class="text-right">金額</th><th>状態</th><th>更新</th></tr></thead>
+        <tbody id="deals-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- COMMISSIONS -->
+  <section id="page-commissions" class="page px-10 py-8">
+    <div class="grid grid-cols-4 gap-px mb-8" style="background: var(--line);">
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">CONFIRMED (THIS MONTH)</p>
+        <p class="serif-en tabular gold text-3xl">¥32,760K</p>
+      </div>
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">PENDING</p>
+        <p class="serif-en tabular text-3xl">¥4,180K</p>
+      </div>
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">PARTNERS TO PAY</p>
+        <p class="serif-en tabular gold text-3xl">142</p>
+      </div>
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">NEXT PAYOUT</p>
+        <p class="serif-en tabular text-3xl">06/15</p>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mb-4">
+      <div class="flex gap-2">
+        <select class="text-sm"><option>2026年 5月</option><option>2026年 4月</option><option>2026年 3月</option></select>
+        <input placeholder="パートナー名で絞り込み" class="text-sm w-64" />
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn-ghost">CSVエクスポート</button>
+        <button class="btn btn-fill" onclick="confirmPayout()">月次支払いを実行</button>
+      </div>
+    </div>
+
+    <div class="panel" style="padding:0;">
+      <table>
+        <thead><tr><th>ID</th><th>パートナー</th><th>Tier</th><th class="text-right">成約数</th><th class="text-right">GMV</th><th class="text-right">確定コミッション</th><th>口座</th><th>状態</th></tr></thead>
+        <tbody id="payout-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ALERTS -->
+  <section id="page-alerts" class="page px-10 py-8">
+    <p class="text-sm text-[color:var(--sub)] mb-6">自動検知ルールに該当する案件・パートナーを表示します。</p>
+
+    <div id="alerts-list"></div>
+  </section>
+
+  <!-- AUDIT -->
+  <section id="page-audit" class="page px-10 py-8">
+    <div class="flex gap-2 mb-6">
+      <input placeholder="アクター・対象・アクションで検索" class="flex-1" />
+      <select class="w-40"><option>すべての操作</option><option>承認</option><option>差戻</option><option>編集</option><option>削除</option></select>
+      <input type="date" class="w-48" />
+    </div>
+
+    <div class="panel" style="padding:0;">
+      <table>
+        <thead><tr><th>日時</th><th>アクター</th><th>権限</th><th>アクション</th><th>対象</th><th>IPアドレス</th></tr></thead>
+        <tbody id="audit-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<script>
+  const fmt = (n) => '¥' + n.toLocaleString('ja-JP');
+
+  // ==== MOCK DATA ====
+  const topPartners = [
+    { rank: 1, name: '神田 卓郎', tier: 'Platinum', deals: 23, gmv: 38_400_000, comm: 2_880_000 },
+    { rank: 2, name: 'コンシェルジュ青山 (法人)', tier: 'Platinum', deals: 21, gmv: 32_100_000, comm: 2_407_500 },
+    { rank: 3, name: '東山 美沙子', tier: 'Gold', deals: 14, gmv: 21_840_000, comm: 1_474_200 },
+    { rank: 4, name: '佐久間 隆志', tier: 'Gold', deals: 12, gmv: 18_200_000, comm: 1_228_500 },
+    { rank: 5, name: '龍崎 雅子', tier: 'Silver', deals: 6, gmv: 7_420_000, comm: 445_200 },
+  ];
+
+  const pendingPartners = [
+    { id: 'GP-0214', name: '吉田 麻里', type: '個人', segment: '銀座クラブ・10年', applied: '5月17日', status: 'pending', urgent: true },
+    { id: 'GP-0213', name: '渡辺 一徳', type: '個人', segment: '元LVMH SA・8年', applied: '5月17日', status: 'pending', urgent: false },
+    { id: 'GP-0212', name: '株式会社プリヴェ', type: '法人', segment: '六本木コンシェルジュ', applied: '5月16日', status: 'pending', urgent: true },
+    { id: 'GP-0211', name: '中野 純平', type: '個人', segment: 'ゴルフ会員制クラブ', applied: '5月16日', status: 'pending', urgent: false },
+    { id: 'GP-0210', name: '坂口 さおり', type: '個人', segment: '私設秘書・15年', applied: '5月15日', status: 'pending', urgent: true },
+    { id: 'GP-0209', name: '高田 圭介', type: '個人', segment: 'ホテル・コンシェルジュ', applied: '5月15日', status: 'pending', urgent: false },
+    { id: 'GP-0208', name: '森田 律子', type: '個人', segment: '富裕層スタイリスト', applied: '5月14日', status: 'pending', urgent: false },
+  ];
+
+  const allDeals = [
+    { id: 'GP-2026-0142', partner: '龍崎 雅子', customer: '佐久間 様', product: 'Hermès Birkin 25', amount: 4_800_000, status: '見積中', updated: '5分前', alert: false },
+    { id: 'GP-2026-0144', partner: '神田 卓郎', customer: 'M.K. 様', product: 'Patek Calatrava 5227G', amount: 8_900_000, status: '見積中', updated: '15分前', alert: false },
+    { id: 'GP-2026-0143', partner: '神田 卓郎', customer: 'M.K. 様', product: 'Patek Nautilus 5712', amount: 11_200_000, status: '見積中', updated: '20分前', alert: true },
+    { id: 'GP-2026-0141', partner: '龍崎 雅子', customer: '東郷 様', product: 'Patek Nautilus 5711', amount: 12_000_000, status: '合意済', updated: '2時間前', alert: false },
+    { id: 'GP-2026-0140', partner: '東山 美沙子', customer: 'H.S. 様', product: 'Hermès Kelly 25', amount: 6_800_000, status: '合意済', updated: '3時間前', alert: false },
+    { id: 'GP-2026-0139', partner: '龍崎 雅子', customer: '神田 様', product: 'Bottega Cabat', amount: 980_000, status: '調達中', updated: '昨日', alert: false },
+    { id: 'GP-2026-0138', partner: '龍崎 雅子', customer: '安西 様', product: 'Rolex Daytona', amount: 6_400_000, status: '配送中', updated: '昨日', alert: false },
+    { id: 'GP-2026-0136', partner: 'コンシェルジュ青山', customer: '法人A', product: 'AP Royal Oak 15500ST', amount: 19_800_000, status: '合意済', updated: '5月15日', alert: true },
+  ];
+
+  const payouts = [
+    { id: 'GP-0001', name: '神田 卓郎', tier: 'Platinum', deals: 23, gmv: 38_400_000, comm: 2_880_000, bank: '三井住友 ****8821', status: 'ready' },
+    { id: 'GP-0007', name: 'コンシェルジュ青山', tier: 'Platinum', deals: 21, gmv: 32_100_000, comm: 2_407_500, bank: 'みずほ ****3401', status: 'ready' },
+    { id: 'GP-0014', name: '東山 美沙子', tier: 'Gold', deals: 14, gmv: 21_840_000, comm: 1_474_200, bank: '三菱UFJ ****6712', status: 'ready' },
+    { id: 'GP-0019', name: '佐久間 隆志', tier: 'Gold', deals: 12, gmv: 18_200_000, comm: 1_228_500, bank: '三井住友 ****0023', status: 'ready' },
+    { id: 'GP-0073', name: '龍崎 雅子', tier: 'Silver', deals: 6, gmv: 7_420_000, comm: 445_200, bank: '三井住友 ****1234', status: 'hold' },
+    { id: 'GP-0094', name: '小笠原 真理子', tier: 'Silver', deals: 5, gmv: 6_100_000, comm: 366_000, bank: 'PayPay ****2299', status: 'ready' },
+  ];
+
+  const alerts = [
+    { time: '1時間前', severity: 'HIGH', code: 'VOLUME_SPIKE', target: 'GP-0073 (龍崎 雅子)', desc: '過去24時間で通常の4倍の発注量。要レビュー。' },
+    { time: '昨日', severity: 'HIGH', code: 'AMOUNT_OUTLIER', target: 'GP-2026-0136 (¥19,800,000)', desc: 'パートナーの平均成約額の8倍。本部による顧客直接確認が必要。' },
+    { time: '2日前', severity: 'MEDIUM', code: 'CUSTOMER_OVERLAP', target: 'M.K. 様', desc: '同一顧客が GP-0001 と GP-0014 の両方に紐づき、30日ロックを超えています。' },
+  ];
+
+  const auditLogs = [
+    { time: '2026-05-18 14:23:11', actor: '高橋 賢治', role: 'admin', action: 'PARTNER_APPROVE', target: 'GP-0214', ip: '192.0.2.10' },
+    { time: '2026-05-18 13:45:02', actor: '伊藤 葵', role: 'concierge', action: 'ORDER_UPDATE', target: 'GP-2026-0141', ip: '192.0.2.12' },
+    { time: '2026-05-18 12:01:55', actor: 'system', role: 'system', action: 'PAYOUT_BATCH_RUN', target: '2026-04', ip: '-' },
+    { time: '2026-05-18 10:33:41', actor: '高橋 賢治', role: 'admin', action: 'PARTNER_REJECT', target: 'GP-0207', ip: '192.0.2.10' },
+    { time: '2026-05-18 09:12:08', actor: 'system', role: 'system', action: 'ALERT_RAISED', target: 'GP-0073', ip: '-' },
+    { time: '2026-05-17 22:48:30', actor: '高橋 賢治', role: 'admin', action: 'COMMISSION_HOLD', target: 'GP-0073', ip: '192.0.2.10' },
+  ];
+
+  // ==== RENDERERS ====
+  function tierBadge(t) {
+    const map = { 'Platinum': 'gold', 'Gold': 'gold', 'Silver': 'muted', 'Bronze': 'muted' };
+    return `<span class="badge ${map[t]}">${t}</span>`;
+  }
+
+  function statusBadge(s) {
+    const map = { '見積中': 'warn', '合意済': 'gold', '調達中': 'gold', '配送中': 'gold', '納品済': 'success' };
+    return `<span class="badge ${map[s] || 'muted'}">${s}</span>`;
+  }
+
+  function renderTopPartners() {
+    document.getElementById('top-partners').innerHTML = topPartners.map(p => `
+      <tr>
+        <td class="serif-en tabular gold">0${p.rank}</td>
+        <td>${p.name}</td>
+        <td>${tierBadge(p.tier)}</td>
+        <td class="text-right tabular">${p.deals}</td>
+        <td class="text-right tabular">${fmt(p.gmv)}</td>
+        <td class="text-right tabular gold">${fmt(p.comm)}</td>
+      </tr>
+    `).join('');
+  }
+
+  function renderPartners() {
+    document.getElementById('partners-table').innerHTML = pendingPartners.map(p => `
+      <tr>
+        <td class="serif-en tabular text-xs gold">${p.id}</td>
+        <td>${p.name} ${p.urgent ? '<span class="badge danger ml-2">URGENT</span>' : ''}</td>
+        <td>${p.type}</td>
+        <td class="text-xs text-[color:var(--sub)]">${p.segment}</td>
+        <td class="text-xs">${p.applied}</td>
+        <td><span class="badge warn">審査中</span></td>
+        <td class="text-right whitespace-nowrap">
+          <button class="btn btn-ghost text-xs" style="padding:6px 12px;">詳細</button>
+          <button class="btn btn-fill text-xs" style="padding:6px 12px;">承認</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  function renderDeals() {
+    document.getElementById('deals-table').innerHTML = allDeals.map(d => `
+      <tr${d.alert ? ' style="background: rgba(201,122,107,.04);"' : ''}>
+        <td class="serif-en tabular text-xs gold">${d.id} ${d.alert ? '<span class="badge danger ml-2">!</span>' : ''}</td>
+        <td>${d.partner}</td>
+        <td>${d.customer}</td>
+        <td>${d.product}</td>
+        <td class="text-right tabular">${fmt(d.amount)}</td>
+        <td>${statusBadge(d.status)}</td>
+        <td class="text-[color:var(--sub)] text-xs">${d.updated}</td>
+      </tr>
+    `).join('');
+  }
+
+  function renderPayouts() {
+    document.getElementById('payout-table').innerHTML = payouts.map(p => `
+      <tr>
+        <td class="serif-en tabular text-xs gold">${p.id}</td>
+        <td>${p.name}</td>
+        <td>${tierBadge(p.tier)}</td>
+        <td class="text-right tabular">${p.deals}</td>
+        <td class="text-right tabular">${fmt(p.gmv)}</td>
+        <td class="text-right tabular gold">${fmt(p.comm)}</td>
+        <td class="text-xs text-[color:var(--sub)]">${p.bank}</td>
+        <td>${p.status === 'hold' ? '<span class="badge danger">HOLD</span>' : '<span class="badge success">READY</span>'}</td>
+      </tr>
+    `).join('');
+  }
+
+  function renderAlerts() {
+    document.getElementById('alerts-list').innerHTML = alerts.map(a => `
+      <div class="alert-row">
+        <span class="badge danger">${a.severity}</span>
+        <span class="serif-en tabular gold text-xs">${a.code}</span>
+        <div class="flex-1">
+          <p class="text-sm">${a.target}</p>
+          <p class="text-xs text-[color:var(--sub)] mt-1">${a.desc}</p>
+        </div>
+        <span class="text-xs text-[color:var(--sub)]">${a.time}</span>
+        <button class="btn btn-ghost text-xs" style="padding:6px 12px;">詳細</button>
+        <button class="btn btn-danger text-xs" style="padding:6px 12px;">対応</button>
+      </div>
+    `).join('');
+  }
+
+  function renderAudit() {
+    document.getElementById('audit-table').innerHTML = auditLogs.map(l => `
+      <tr>
+        <td class="tabular text-xs">${l.time}</td>
+        <td>${l.actor}</td>
+        <td class="text-xs text-[color:var(--sub)]">${l.role}</td>
+        <td><span class="serif-en text-xs gold">${l.action}</span></td>
+        <td class="text-xs">${l.target}</td>
+        <td class="text-xs text-[color:var(--sub)] tabular">${l.ip}</td>
+      </tr>
+    `).join('');
+  }
+
+  // ==== NAV ====
+  const pages = ['overview', 'partners', 'deals', 'commissions', 'alerts', 'audit'];
+  const titles = {
+    overview: ['SECTION 01', '概況'],
+    partners: ['SECTION 02', 'パートナー審査キュー'],
+    deals: ['SECTION 03', '全案件モニタリング'],
+    commissions: ['SECTION 04', '月次コミッション集計'],
+    alerts: ['SECTION 05', '不正検知アラート'],
+    audit: ['SECTION 06', '監査ログ'],
+  };
+
+  function goto(page) {
+    pages.forEach(p => document.getElementById('page-' + p).classList.toggle('active', p === page));
+    document.querySelectorAll('.navlink').forEach(n => n.classList.toggle('active', n.dataset.page === page));
+    const [eyebrow, title] = titles[page];
+    document.getElementById('page-eyebrow').textContent = eyebrow;
+    document.getElementById('page-title').textContent = title;
+    location.hash = page;
+  }
+
+  document.querySelectorAll('.navlink').forEach(n => n.addEventListener('click', () => goto(n.dataset.page)));
+
+  function confirmPayout() {
+    const total = payouts.filter(p => p.status === 'ready').reduce((s, p) => s + p.comm, 0);
+    if (confirm(`5月分コミッション ${fmt(total)} を ${payouts.filter(p => p.status === 'ready').length} 名に支払います。よろしいですか？`)) {
+      alert('支払い処理を Stripe Connect に送信しました（モック）');
+    }
+  }
+
+  function tickClock() {
+    const d = new Date();
+    document.getElementById('clock').textContent = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  }
+  tickClock(); setInterval(tickClock, 30_000);
+
+  renderTopPartners();
+  renderPartners();
+  renderDeals();
+  renderPayouts();
+  renderAlerts();
+  renderAudit();
+
+  if (location.hash) {
+    const p = location.hash.slice(1);
+    if (pages.includes(p)) goto(p);
+  }
+</script>
+
+</body>
+</html>

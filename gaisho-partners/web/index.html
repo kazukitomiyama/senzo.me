@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GAISHO PARTNERS — 富裕層接点を、品格ある収入へ</title>
+<meta name="description" content="GAISHO PARTNERS は、富裕層接点を持つあなたが、仕入れ・認証・配送をすべて任せて、紹介だけで月収数十万〜数百万を実現するラグジュアリー外商プラットフォームです。" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --gold: #C9A961;
+    --gold-soft: rgba(201,169,97,.5);
+    --gold-faint: rgba(201,169,97,.12);
+    --text: #F5F1E8;
+    --sub: rgba(245,241,232,.6);
+    --line: rgba(245,241,232,.12);
+  }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Noto Serif JP', serif; font-weight: 300; letter-spacing: .02em; }
+  .serif-en { font-family: 'Playfair Display', serif; letter-spacing: .04em; }
+  .tabular { font-variant-numeric: tabular-nums lining-nums; }
+  .gold { color: var(--gold); }
+  .bg-gold { background-color: var(--gold); }
+  .border-gold { border-color: var(--gold); }
+  .border-soft { border-color: var(--line); }
+  .hairline { border-top: 1px solid var(--line); }
+  .gold-divider { display:flex; align-items:center; gap: 16px; }
+  .gold-divider::before, .gold-divider::after { content:''; flex:1; height:1px; background: var(--gold-soft); }
+  .eyebrow { font-size: 11px; letter-spacing: .35em; color: var(--gold); }
+  .kbtn { display:inline-flex; align-items:center; justify-content:center; padding: 16px 36px; border:1px solid var(--gold); color: var(--gold); transition: all .25s; }
+  .kbtn:hover { background: var(--gold); color: var(--bg); }
+  .kbtn-fill { background: var(--gold); color: var(--bg); }
+  .kbtn-fill:hover { background: transparent; color: var(--gold); }
+  .nav-link { color: var(--sub); transition: color .2s; }
+  .nav-link:hover { color: var(--gold); }
+  .card { border: 1px solid var(--line); padding: 32px; background: rgba(255,255,255,.01); transition: border-color .3s; }
+  .card:hover { border-color: var(--gold-soft); }
+  .num { font-family: 'Playfair Display', serif; font-weight: 500; color: var(--gold); }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .chev { transform: rotate(45deg); }
+  .chev { transition: transform .2s; }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur" style="background: rgba(10,10,10,.85); border-bottom: 1px solid var(--line);">
+  <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="#top" class="serif-en text-xl gold">GAISHO PARTNERS</a>
+    <div class="hidden md:flex items-center gap-8 text-sm">
+      <a href="#problem" class="nav-link">課題</a>
+      <a href="#solution" class="nav-link">解決</a>
+      <a href="#income" class="nav-link">収益</a>
+      <a href="#flow" class="nav-link">参加</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+    </div>
+    <a href="#entry" class="kbtn text-sm py-2 px-5">エントリー</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="pt-40 pb-32 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="eyebrow mb-10">FOR LUXURY-FACING PROFESSIONALS</p>
+    <h1 class="text-4xl md:text-6xl font-medium leading-tight mb-10">
+      あなたの顧客リストが、<br/>
+      <span class="gold">品格ある収入</span>になる。
+    </h1>
+    <div class="gold-divider mb-10 max-w-xs mx-auto"></div>
+    <p class="text-lg text-[color:var(--sub)] mb-12 leading-loose">
+      仕入れも、認証も、配送も、すべて GAISHO が担う。<br/>
+      あなたは、富裕層との会話に集中するだけでいい。
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#entry" class="kbtn kbtn-fill">エントリーする</a>
+      <a href="#solution" class="kbtn">仕組みを見る</a>
+    </div>
+    <p class="text-xs text-[color:var(--sub)] mt-8 tracking-widest">初年度300名限定募集 / 申込から最短2週間でデビュー</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem" class="py-24 px-6" style="border-top: 1px solid var(--line);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="eyebrow mb-4">THE GAP</p>
+      <h2 class="serif-en text-3xl md:text-4xl mb-6">Your network is dormant.</h2>
+      <p class="text-[color:var(--sub)]">その人脈、まだ眠っていませんか。</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-px" style="background: var(--line);">
+      <div class="card" style="border: none;">
+        <p class="serif-en gold text-sm mb-3">CASE 01</p>
+        <p class="text-lg leading-relaxed mb-3">銀座のママが、お客様の「Birkin欲しい」を叶えられない。</p>
+        <p class="text-sm text-[color:var(--sub)]">仕入れルートも、本物保証の手段も、配送網も持たない。</p>
+      </div>
+      <div class="card" style="border: none;">
+        <p class="serif-en gold text-sm mb-3">CASE 02</p>
+        <p class="text-lg leading-relaxed mb-3">元ブランドSAが、独立後の仕入れ網を失う。</p>
+        <p class="text-sm text-[color:var(--sub)]">お得意様の関係性は残っても、商品供給が途絶える。</p>
+      </div>
+      <div class="card" style="border: none;">
+        <p class="serif-en gold text-sm mb-3">CASE 03</p>
+        <p class="text-lg leading-relaxed mb-3">私設秘書が、ご主人の時計探しに疲弊する。</p>
+        <p class="text-sm text-[color:var(--sub)]">3社に問い合わせ、本物確認に走り、納期は読めない。</p>
+      </div>
+      <div class="card" style="border: none;">
+        <p class="serif-en gold text-sm mb-3">CASE 04</p>
+        <p class="text-lg leading-relaxed mb-3">インフルエンサーが、商品相談を断るしかない。</p>
+        <p class="text-sm text-[color:var(--sub)]">フォロワーの信頼を、収益化できる仕組みがない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution" class="py-24 px-6" style="background: rgba(201,169,97,.03);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="eyebrow mb-4">THE PLATFORM</p>
+      <h2 class="text-3xl md:text-4xl mb-6">GAISHO PARTNERS とは。</h2>
+      <p class="text-[color:var(--sub)] leading-loose">富裕層外商の「裏側のすべて」を、あなたの代わりに動かす基幹インフラ。</p>
+    </div>
+
+    <div class="space-y-px" style="background: var(--line);">
+      <div class="grid md:grid-cols-2 gap-px bg-[color:var(--bg)]">
+        <div class="p-8 flex items-center gap-6">
+          <span class="num text-3xl tabular">01</span>
+          <p class="text-lg">顧客と話すのは、<span class="gold">あなた</span></p>
+        </div>
+        <div class="p-8 flex items-center gap-6">
+          <span class="num text-3xl tabular">02</span>
+          <p class="text-lg">商品を見つけるのは、<span class="gold">GAISHO Hunter (AI)</span></p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-px bg-[color:var(--bg)]">
+        <div class="p-8 flex items-center gap-6">
+          <span class="num text-3xl tabular">03</span>
+          <p class="text-lg">本物を保証するのは、<span class="gold">真贋認証チーム</span></p>
+        </div>
+        <div class="p-8 flex items-center gap-6">
+          <span class="num text-3xl tabular">04</span>
+          <p class="text-lg">配送・通関するのは、<span class="gold">HIDE TOKYO</span></p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-px bg-[color:var(--bg)]">
+        <div class="p-8 flex items-center gap-6 md:col-span-2 justify-center">
+          <span class="num text-3xl tabular">05</span>
+          <p class="text-lg">報酬を受け取るのは、<span class="gold">あなた</span>。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="eyebrow mb-4">YOUR ARSENAL</p>
+      <h2 class="text-3xl md:text-4xl mb-6">あなた一人で、外商部一部門と戦える。</h2>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-4">
+      <div class="card"><p class="serif-en gold text-xs mb-3">01 / AI PROCUREMENT</p><p class="font-medium mb-2">GAISHO Hunter</p><p class="text-sm text-[color:var(--sub)]">世界40サイトの在庫を24時間監視。希少品を取り逃さない。</p></div>
+      <div class="card"><p class="serif-en gold text-xs mb-3">02 / GLOBAL SOURCING</p><p class="font-medium mb-2">海外バイヤー網</p><p class="text-sm text-[color:var(--sub)]">パリ、ミラノ、香港、NYの仕入れチャネル。</p></div>
+      <div class="card"><p class="serif-en gold text-xs mb-3">03 / AUTHENTICATION</p><p class="font-medium mb-2">真贋認証チーム</p><p class="text-sm text-[color:var(--sub)]">鑑定済証明書を顧客に提示できる。GAISHO 名義で保証。</p></div>
+      <div class="card"><p class="serif-en gold text-xs mb-3">04 / STOCK</p><p class="font-medium mb-2">HIDE TOKYO 在庫</p><p class="text-sm text-[color:var(--sub)]">数千点の即納可能在庫プール。</p></div>
+      <div class="card"><p class="serif-en gold text-xs mb-3">05 / CRM</p><p class="font-medium mb-2">LINE 自動化</p><p class="text-sm text-[color:var(--sub)]">顧客対応の半分を AI が代行する。</p></div>
+      <div class="card"><p class="serif-en gold text-xs mb-3">06 / LOGISTICS</p><p class="font-medium mb-2">配送・通関</p><p class="text-sm text-[color:var(--sub)]">国際配送をミスゼロで運用。</p></div>
+      <div class="card"><p class="serif-en gold text-xs mb-3">07 / BRAND</p><p class="font-medium mb-2">GAISHO 公認の信頼</p><p class="text-sm text-[color:var(--sub)]">商談の最後の一押しに、ブランドが効く。</p></div>
+      <div class="card"><p class="serif-en gold text-xs mb-3">08 / AI CONCIERGE</p><p class="font-medium mb-2">Claude AI 接客</p><p class="text-sm text-[color:var(--sub)]">提案の壁打ち相手。下書きを毎回生成。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 STEP DEMO -->
+<section class="py-24 px-6" style="background: rgba(201,169,97,.03);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="eyebrow mb-4">HOW IT WORKS</p>
+      <h2 class="text-3xl md:text-4xl mb-6">あなたが動かすのは、たった5アクション。</h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="flex items-stretch border-soft" style="border:1px solid var(--line);">
+        <div class="bg-gold text-[color:var(--bg)] p-6 flex items-center justify-center w-24"><span class="num tabular text-2xl" style="color: var(--bg);">01</span></div>
+        <div class="p-6 flex-1"><p class="font-medium mb-1">顧客から「○○欲しい」と聞く</p><p class="text-sm text-[color:var(--sub)]">普段の会話の中で。商品知識は不要。</p></div>
+      </div>
+      <div class="flex items-stretch" style="border:1px solid var(--line);">
+        <div class="bg-gold text-[color:var(--bg)] p-6 flex items-center justify-center w-24"><span class="num tabular text-2xl" style="color: var(--bg);">02</span></div>
+        <div class="p-6 flex-1"><p class="font-medium mb-1">LINE で紹介リンクを送る</p><p class="text-sm text-[color:var(--sub)]">あなた固有のリンクを、ダッシュボードからワンタップ生成。</p></div>
+      </div>
+      <div class="flex items-stretch" style="border:1px solid var(--line); opacity: .7;">
+        <div class="p-6 flex items-center justify-center w-24 border-r border-soft" style="border-color: var(--line);"><span class="num tabular text-2xl">03</span></div>
+        <div class="p-6 flex-1"><p class="font-medium mb-1 text-[color:var(--sub)]">[GAISHO] AI が候補を提示</p><p class="text-sm text-[color:var(--sub)]">GAISHO Hunter が世界中の在庫から候補を抽出。</p></div>
+      </div>
+      <div class="flex items-stretch" style="border:1px solid var(--line);">
+        <div class="bg-gold text-[color:var(--bg)] p-6 flex items-center justify-center w-24"><span class="num tabular text-2xl" style="color: var(--bg);">04</span></div>
+        <div class="p-6 flex-1"><p class="font-medium mb-1">候補を顧客に渡し、合意を取る</p><p class="text-sm text-[color:var(--sub)]">価格・納期に納得いただいたら、ボタン1つで発注。</p></div>
+      </div>
+      <div class="flex items-stretch" style="border:1px solid var(--line); opacity: .7;">
+        <div class="p-6 flex items-center justify-center w-24 border-r border-soft" style="border-color: var(--line);"><span class="num tabular text-2xl">05</span></div>
+        <div class="p-6 flex-1"><p class="font-medium mb-1 text-[color:var(--sub)]">[GAISHO] 仕入れ・認証・配送</p><p class="text-sm text-[color:var(--sub)]">納品まですべて GAISHO 側で完結。あなたはコミッションを受け取る。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCOME -->
+<section id="income" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="eyebrow mb-4">EARNINGS</p>
+      <h2 class="text-3xl md:text-4xl mb-6">副業から法人化まで、自由に伸ばせる。</h2>
+      <p class="text-sm text-[color:var(--sub)]">コミッション率は実績・継続率で 30〜50% の範囲で変動（GAISHO手数料15%のうち）</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-px" style="background: var(--line);">
+      <div class="bg-[color:var(--bg)] p-10 text-center">
+        <p class="serif-en gold text-sm mb-2">SIDE</p>
+        <p class="text-lg mb-6">副業型</p>
+        <p class="text-xs text-[color:var(--sub)] mb-4">銀座ホステス・スタイリスト等</p>
+        <p class="num tabular text-4xl mb-1">¥4.8〜9.6<span class="text-lg">万</span></p>
+        <p class="text-xs text-[color:var(--sub)] mb-6">月収レンジ</p>
+        <p class="text-sm text-[color:var(--sub)]">月成約 1〜2件 / 平均単価 ¥80万</p>
+      </div>
+      <div class="bg-[color:var(--bg)] p-10 text-center" style="border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold);">
+        <p class="serif-en gold text-sm mb-2">PRIME</p>
+        <p class="text-lg mb-6">本業型</p>
+        <p class="text-xs text-[color:var(--sub)] mb-4">元ブランドSA・私設秘書等</p>
+        <p class="num tabular text-4xl mb-1">¥36〜58<span class="text-lg">万</span></p>
+        <p class="text-xs text-[color:var(--sub)] mb-6">月収レンジ</p>
+        <p class="text-sm text-[color:var(--sub)]">月成約 5〜8件 / 平均単価 ¥120万</p>
+      </div>
+      <div class="bg-[color:var(--bg)] p-10 text-center">
+        <p class="serif-en gold text-sm mb-2">ENTERPRISE</p>
+        <p class="text-lg mb-6">法人型</p>
+        <p class="text-xs text-[color:var(--sub)] mb-4">外商OB・コンシェルジュ会社</p>
+        <p class="num tabular text-4xl mb-1">¥180<span class="text-lg">万〜</span></p>
+        <p class="text-xs text-[color:var(--sub)] mb-6">月収レンジ</p>
+        <p class="text-sm text-[color:var(--sub)]">月成約 20件以上 / 平均単価 ¥150万</p>
+      </div>
+    </div>
+
+    <p class="text-xs text-[color:var(--sub)] text-center mt-8 tracking-widest">※ コミッション 40% 換算の試算。実際の支払額は確定報酬で計算されます。</p>
+  </div>
+</section>
+
+<!-- COMPETITORS -->
+<section class="py-24 px-6" style="background: rgba(201,169,97,.03);">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="eyebrow mb-4">DIFFERENCE</p>
+      <h2 class="text-3xl md:text-4xl mb-6">BUYMA や個人並行輸入と、何が違うのか。</h2>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="hairline" style="border-bottom: 1px solid var(--line);">
+            <th class="text-left py-4 px-4 text-[color:var(--sub)] font-normal">軸</th>
+            <th class="text-left py-4 px-4 text-[color:var(--sub)] font-normal">個人並行輸入</th>
+            <th class="text-left py-4 px-4 text-[color:var(--sub)] font-normal">BUYMA</th>
+            <th class="text-left py-4 px-4 gold font-medium">GAISHO PARTNERS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--line);"><td class="py-4 px-4">仕入れ</td><td class="py-4 px-4 text-[color:var(--sub)]">自分</td><td class="py-4 px-4 text-[color:var(--sub)]">自分</td><td class="py-4 px-4 gold">GAISHO</td></tr>
+          <tr style="border-bottom: 1px solid var(--line);"><td class="py-4 px-4">真贋認証</td><td class="py-4 px-4 text-[color:var(--sub)]">不可</td><td class="py-4 px-4 text-[color:var(--sub)]">不可</td><td class="py-4 px-4 gold">GAISHO 認証チーム</td></tr>
+          <tr style="border-bottom: 1px solid var(--line);"><td class="py-4 px-4">配送</td><td class="py-4 px-4 text-[color:var(--sub)]">自分（リスク高）</td><td class="py-4 px-4 text-[color:var(--sub)]">自分</td><td class="py-4 px-4 gold">GAISHO</td></tr>
+          <tr style="border-bottom: 1px solid var(--line);"><td class="py-4 px-4">顧客層</td><td class="py-4 px-4 text-[color:var(--sub)]">一般</td><td class="py-4 px-4 text-[color:var(--sub)]">一般</td><td class="py-4 px-4 gold">富裕層</td></tr>
+          <tr><td class="py-4 px-4">想定単価</td><td class="py-4 px-4 text-[color:var(--sub)]">〜¥100K</td><td class="py-4 px-4 text-[color:var(--sub)]">〜¥300K</td><td class="py-4 px-4 gold">¥800K〜</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="eyebrow mb-4">ONBOARDING</p>
+      <h2 class="text-3xl md:text-4xl mb-6">申込から初成約まで、最短2週間。</h2>
+    </div>
+
+    <div class="grid md:grid-cols-6 gap-2">
+      <div class="card text-center" style="padding: 20px;"><p class="num tabular text-2xl mb-2">01</p><p class="text-sm mb-1">エントリー</p><p class="text-xs text-[color:var(--sub)]">1日</p></div>
+      <div class="card text-center" style="padding: 20px;"><p class="num tabular text-2xl mb-2">02</p><p class="text-sm mb-1">一次審査</p><p class="text-xs text-[color:var(--sub)]">3日</p></div>
+      <div class="card text-center" style="padding: 20px;"><p class="num tabular text-2xl mb-2">03</p><p class="text-sm mb-1">面談</p><p class="text-xs text-[color:var(--sub)]">1週間</p></div>
+      <div class="card text-center" style="padding: 20px;"><p class="num tabular text-2xl mb-2">04</p><p class="text-sm mb-1">Academy</p><p class="text-xs text-[color:var(--sub)]">1週間</p></div>
+      <div class="card text-center" style="padding: 20px;"><p class="num tabular text-2xl mb-2">05</p><p class="text-sm mb-1">デビュー</p><p class="text-xs text-[color:var(--sub)]">即日</p></div>
+      <div class="card text-center" style="padding: 20px; background: var(--gold-faint); border-color: var(--gold);"><p class="num tabular text-2xl mb-2">06</p><p class="text-sm mb-1">初成約</p><p class="text-xs text-[color:var(--sub)]">平均14日</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 px-6" style="background: rgba(201,169,97,.03);">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="eyebrow mb-4">QUESTIONS</p>
+      <h2 class="text-3xl md:text-4xl mb-6">よくあるご質問。</h2>
+    </div>
+
+    <div class="space-y-2">
+      <details class="card">
+        <summary class="flex items-center justify-between"><span class="font-medium">他の仕事と両立できますか？</span><span class="gold text-2xl chev">+</span></summary>
+        <p class="mt-4 text-sm text-[color:var(--sub)] leading-loose">副業型なら全く問題ありません。月1件からでも稼働可能で、ノルマもありません。</p>
+      </details>
+      <details class="card">
+        <summary class="flex items-center justify-between"><span class="font-medium">顧客情報を他のパートナーに見られませんか？</span><span class="gold text-2xl chev">+</span></summary>
+        <p class="mt-4 text-sm text-[color:var(--sub)] leading-loose">パートナー間の顧客情報は完全に遮断されます。あなたの顧客は、他のパートナーには存在さえ見えません。</p>
+      </details>
+      <details class="card">
+        <summary class="flex items-center justify-between"><span class="font-medium">契約形態と税務処理は？</span><span class="gold text-2xl chev">+</span></summary>
+        <p class="mt-4 text-sm text-[color:var(--sub)] leading-loose">業務委託契約です。雇用ではありません。確定申告のサポートも Academy で提供します。</p>
+      </details>
+      <details class="card">
+        <summary class="flex items-center justify-between"><span class="font-medium">古物商許可は必要ですか？</span><span class="gold text-2xl chev">+</span></summary>
+        <p class="mt-4 text-sm text-[color:var(--sub)] leading-loose">不要です。商品の売買主体は GAISHO（古物商許可保有）が担います。</p>
+      </details>
+      <details class="card">
+        <summary class="flex items-center justify-between"><span class="font-medium">商品が並行輸入であることを顧客に説明する必要は？</span><span class="gold text-2xl chev">+</span></summary>
+        <p class="mt-4 text-sm text-[color:var(--sub)] leading-loose">並行輸入であることは隠しません。むしろ「なぜ正規店より早く、安く手に入るのか」を正しく説明できる教材を Academy で提供します。</p>
+      </details>
+      <details class="card">
+        <summary class="flex items-center justify-between"><span class="font-medium">返品・クレームはどう処理されますか？</span><span class="gold text-2xl chev">+</span></summary>
+        <p class="mt-4 text-sm text-[color:var(--sub)] leading-loose">GAISHO 側で全て対応します。パートナーに金銭的責任は発生しません。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ENTRY -->
+<section id="entry" class="py-32 px-6">
+  <div class="max-w-2xl mx-auto text-center">
+    <p class="eyebrow mb-6">JOIN US</p>
+    <h2 class="text-3xl md:text-5xl mb-8">あなたの顧客は、<br/><span class="gold">もう待っている。</span></h2>
+    <div class="gold-divider mb-10 max-w-xs mx-auto"></div>
+    <p class="text-[color:var(--sub)] mb-12">初年度300名限定募集。<br/>所要時間5分、3項目だけ。</p>
+
+    <form id="entry-form" class="space-y-4 text-left">
+      <div>
+        <label class="block text-xs eyebrow mb-2">お名前</label>
+        <input type="text" name="name" required class="w-full bg-transparent border-b border-soft py-3 px-1 focus:border-gold focus:outline-none transition" style="border-color: var(--line);" />
+      </div>
+      <div>
+        <label class="block text-xs eyebrow mb-2">メールアドレス</label>
+        <input type="email" name="email" required class="w-full bg-transparent border-b border-soft py-3 px-1 focus:border-gold focus:outline-none transition" style="border-color: var(--line);" />
+      </div>
+      <div>
+        <label class="block text-xs eyebrow mb-2">あなたの富裕層接点</label>
+        <textarea name="network" rows="3" required placeholder="例：銀座の会員制ラウンジで5年勤務、年商3,000万円以上のお客様と30名以上の信頼関係。" class="w-full bg-transparent border-b border-soft py-3 px-1 focus:border-gold focus:outline-none transition resize-none" style="border-color: var(--line);"></textarea>
+      </div>
+      <div class="pt-8">
+        <button type="submit" class="kbtn kbtn-fill w-full">エントリーする</button>
+        <p class="text-xs text-[color:var(--sub)] text-center mt-6">送信後、3営業日以内に書類選考の結果をご連絡します。</p>
+      </div>
+    </form>
+
+    <div id="entry-success" class="hidden mt-12 p-8 border" style="border-color: var(--gold);">
+      <p class="serif-en gold mb-3">SUBMITTED.</p>
+      <p class="text-lg mb-3">エントリーを受け付けました。</p>
+      <p class="text-sm text-[color:var(--sub)]">3営業日以内に、ご登録のメールアドレスへ書類選考の結果をお送りします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 px-6" style="border-top: 1px solid var(--line);">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-[color:var(--sub)]">
+    <div>
+      <p class="serif-en gold text-base mb-2">GAISHO PARTNERS</p>
+      <p>運営：株式会社 MUFASA Technology / HIDE TOKYO</p>
+    </div>
+    <div class="flex gap-6">
+      <a href="#" class="nav-link">利用規約</a>
+      <a href="#" class="nav-link">プライバシー</a>
+      <a href="#" class="nav-link">特定商取引法</a>
+      <a href="mailto:partners@gaisho.ai" class="nav-link">問い合わせ</a>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto text-xs text-[color:var(--sub)] mt-8" style="opacity:.5;">
+    © 2026 MUFASA Technology Inc. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: .12 });
+  document.querySelectorAll('section').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id === '#' || id.length < 2) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Form mock (Supabase/Formspree compatible point)
+  // Replace this with: fetch('https://formspree.io/f/XXXX', { method: 'POST', body: new FormData(form) })
+  document.getElementById('entry-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+    console.log('[ENTRY]', data); // -> POST to backend in production
+    form.classList.add('hidden');
+    document.getElementById('entry-success').classList.remove('hidden');
+  });
+</script>
+
+</body>
+</html>

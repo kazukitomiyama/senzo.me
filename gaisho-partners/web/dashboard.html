@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GAISHO PARTNERS Cloud — Partner Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --gold: #C9A961;
+    --gold-soft: rgba(201,169,97,.5);
+    --gold-faint: rgba(201,169,97,.08);
+    --text: #F5F1E8;
+    --sub: rgba(245,241,232,.55);
+    --line: rgba(245,241,232,.10);
+    --line-strong: rgba(245,241,232,.18);
+  }
+  html, body { background: var(--bg); color: var(--text); font-family: 'Noto Serif JP', serif; font-weight: 300; }
+  .serif-en { font-family: 'Playfair Display', serif; letter-spacing: .04em; }
+  .tabular { font-variant-numeric: tabular-nums lining-nums; }
+  .gold { color: var(--gold); }
+  .eyebrow { font-size: 10px; letter-spacing: .3em; color: var(--gold); }
+  .navlink { display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: var(--sub); border-left: 2px solid transparent; transition: all .15s; cursor: pointer; }
+  .navlink:hover { color: var(--text); background: rgba(255,255,255,.02); }
+  .navlink.active { color: var(--gold); border-left-color: var(--gold); background: var(--gold-faint); }
+  .panel { background: var(--surface); border: 1px solid var(--line); padding: 24px; }
+  .badge { display: inline-flex; align-items: center; padding: 4px 10px; font-size: 10px; letter-spacing: .15em; border: 1px solid var(--line-strong); }
+  .badge.gold { border-color: var(--gold); color: var(--gold); }
+  .badge.success { border-color: #6BA86B; color: #8FCB8F; }
+  .badge.warn { border-color: #C9A961; color: var(--gold); background: var(--gold-faint); }
+  .badge.muted { color: var(--sub); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 20px; border: 1px solid var(--gold); color: var(--gold); transition: all .2s; cursor: pointer; font-size: 13px; }
+  .btn:hover { background: var(--gold); color: var(--bg); }
+  .btn-fill { background: var(--gold); color: var(--bg); }
+  .btn-fill:hover { background: transparent; color: var(--gold); }
+  .btn-ghost { border-color: var(--line-strong); color: var(--sub); }
+  .btn-ghost:hover { border-color: var(--text); color: var(--text); background: transparent; }
+  .page { display: none; }
+  .page.active { display: block; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 14px 12px; text-align: left; border-bottom: 1px solid var(--line); font-size: 13px; }
+  th { color: var(--sub); font-weight: 400; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; }
+  tr:hover td { background: rgba(255,255,255,.02); }
+  input, textarea, select { background: transparent; border: 1px solid var(--line); padding: 10px 14px; color: var(--text); font-family: inherit; width: 100%; }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--gold); }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; font-size: 11px; border: 1px solid var(--line-strong); color: var(--sub); }
+  .copy-flash { color: var(--gold) !important; }
+  /* Spark bars */
+  .bars { display: flex; align-items: flex-end; gap: 4px; height: 80px; }
+  .bar { flex: 1; background: var(--gold-soft); transition: opacity .3s; }
+  .bar:hover { background: var(--gold); }
+  .bar-label { font-size: 9px; color: var(--sub); text-align: center; margin-top: 6px; }
+</style>
+</head>
+<body class="antialiased">
+
+<div class="flex h-screen overflow-hidden">
+
+<!-- SIDEBAR -->
+<aside class="w-64 border-r flex flex-col" style="border-color: var(--line); background: #0a0a0a;">
+  <div class="px-6 py-6" style="border-bottom: 1px solid var(--line);">
+    <p class="serif-en gold text-lg">GAISHO PARTNERS</p>
+    <p class="text-xs text-[color:var(--sub)] mt-1">Cloud / Partner</p>
+  </div>
+
+  <nav class="flex-1 py-4">
+    <div data-page="dashboard" class="navlink active">
+      <span class="serif-en text-xs tabular w-6">01</span><span class="text-sm">ダッシュボード</span>
+    </div>
+    <div data-page="referrals" class="navlink">
+      <span class="serif-en text-xs tabular w-6">02</span><span class="text-sm">顧客紹介</span>
+    </div>
+    <div data-page="procure" class="navlink">
+      <span class="serif-en text-xs tabular w-6">03</span><span class="text-sm">商品検索</span>
+    </div>
+    <div data-page="orders" class="navlink">
+      <span class="serif-en text-xs tabular w-6">04</span><span class="text-sm">受発注</span>
+    </div>
+    <div data-page="commissions" class="navlink">
+      <span class="serif-en text-xs tabular w-6">05</span><span class="text-sm">コミッション</span>
+    </div>
+    <div data-page="academy" class="navlink">
+      <span class="serif-en text-xs tabular w-6">06</span><span class="text-sm">Academy</span>
+    </div>
+    <div data-page="settings" class="navlink">
+      <span class="serif-en text-xs tabular w-6">07</span><span class="text-sm">設定</span>
+    </div>
+  </nav>
+
+  <div class="px-6 py-4" style="border-top: 1px solid var(--line);">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-[color:var(--gold-faint)] border border-gold flex items-center justify-center serif-en gold tabular">RY</div>
+      <div class="text-xs">
+        <p class="text-sm">龍崎 雅子</p>
+        <p class="text-[color:var(--sub)]">Tier 3 / Silver</p>
+      </div>
+    </div>
+    <a href="index.html" class="block text-xs text-[color:var(--sub)] mt-4 hover:text-[color:var(--gold)]">→ ログアウト</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="flex-1 overflow-y-auto">
+
+  <!-- TOP BAR -->
+  <header class="px-10 py-5 flex items-center justify-between" style="border-bottom: 1px solid var(--line); background: rgba(10,10,10,.9); position: sticky; top:0; z-index: 10; backdrop-filter: blur(8px);">
+    <div>
+      <p class="eyebrow mb-1" id="page-eyebrow">SECTION 01</p>
+      <h1 class="text-xl" id="page-title">ダッシュボード</h1>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="chip">JST <span id="clock" class="tabular gold">--:--</span></span>
+      <span class="chip">2026年 5月</span>
+    </div>
+  </header>
+
+  <!-- PAGE: DASHBOARD -->
+  <section id="page-dashboard" class="page active px-10 py-8">
+
+    <!-- KPIs -->
+    <div class="grid grid-cols-4 gap-px mb-8" style="background: var(--line);">
+      <div class="panel" style="border: none;">
+        <p class="eyebrow mb-3">CLOSED THIS MONTH</p>
+        <p class="serif-en tabular gold text-4xl mb-1">06<span class="text-lg text-[color:var(--sub)]"> 件</span></p>
+        <p class="text-xs text-[color:var(--sub)]">前月比 +2 件</p>
+      </div>
+      <div class="panel" style="border: none;">
+        <p class="eyebrow mb-3">REVENUE</p>
+        <p class="serif-en tabular gold text-4xl mb-1">¥7,420,000</p>
+        <p class="text-xs text-[color:var(--sub)]">平均単価 ¥1,236,667</p>
+      </div>
+      <div class="panel" style="border: none;">
+        <p class="eyebrow mb-3">COMMISSION (CONFIRMED)</p>
+        <p class="serif-en tabular gold text-4xl mb-1">¥445,200</p>
+        <p class="text-xs text-[color:var(--sub)]">40% / Silver Tier</p>
+      </div>
+      <div class="panel" style="border: none;">
+        <p class="eyebrow mb-3">PENDING</p>
+        <p class="serif-en tabular text-4xl mb-1" style="color: var(--text);">¥184,800</p>
+        <p class="text-xs text-[color:var(--sub)]">3案件が進行中</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6 mb-8">
+      <!-- ACTIVE ORDERS -->
+      <div class="col-span-2 panel">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="serif-en text-lg">Active Orders</h2>
+          <a class="text-xs text-[color:var(--sub)] hover:text-[color:var(--gold)] cursor-pointer" onclick="goto('orders')">すべて見る →</a>
+        </div>
+
+        <div class="space-y-3" id="active-orders"></div>
+      </div>
+
+      <!-- LINE LINK -->
+      <div class="panel">
+        <h2 class="serif-en text-lg mb-2">Your LINE Link</h2>
+        <p class="text-xs text-[color:var(--sub)] mb-5">顧客紹介はここから。</p>
+
+        <div class="bg-[color:var(--bg)] border border-soft p-5 mb-4 text-center" style="border-color: var(--line);">
+          <!-- Fake QR -->
+          <div class="inline-block p-3 bg-white">
+            <svg width="120" height="120" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+              <rect width="21" height="21" fill="#fff"/>
+              <g fill="#000">
+                <rect x="0" y="0" width="7" height="1"/><rect x="0" y="0" width="1" height="7"/><rect x="6" y="0" width="1" height="7"/><rect x="0" y="6" width="7" height="1"/>
+                <rect x="2" y="2" width="3" height="3"/>
+                <rect x="14" y="0" width="7" height="1"/><rect x="14" y="0" width="1" height="7"/><rect x="20" y="0" width="1" height="7"/><rect x="14" y="6" width="7" height="1"/>
+                <rect x="16" y="2" width="3" height="3"/>
+                <rect x="0" y="14" width="7" height="1"/><rect x="0" y="14" width="1" height="7"/><rect x="6" y="14" width="1" height="7"/><rect x="0" y="20" width="7" height="1"/>
+                <rect x="2" y="16" width="3" height="3"/>
+                <rect x="9" y="2" width="1" height="1"/><rect x="11" y="3" width="1" height="1"/><rect x="13" y="9" width="1" height="1"/>
+                <rect x="8" y="8" width="1" height="1"/><rect x="10" y="8" width="2" height="1"/><rect x="9" y="10" width="1" height="2"/>
+                <rect x="11" y="11" width="1" height="1"/><rect x="13" y="11" width="2" height="1"/><rect x="16" y="11" width="1" height="2"/>
+                <rect x="12" y="13" width="1" height="1"/><rect x="14" y="14" width="1" height="2"/><rect x="17" y="15" width="2" height="1"/>
+                <rect x="9" y="14" width="2" height="1"/><rect x="11" y="16" width="1" height="2"/><rect x="13" y="17" width="2" height="1"/>
+                <rect x="15" y="19" width="2" height="1"/><rect x="18" y="18" width="2" height="2"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <p class="text-xs text-[color:var(--sub)] mb-2">紹介リンク</p>
+        <div class="flex items-center gap-2 mb-4">
+          <input id="line-link" readonly value="https://line.me/R/ti/p/@gaishoai?P=ryuzaki-2026" class="text-xs" />
+          <button onclick="copyLink()" id="copy-btn" class="btn btn-ghost text-xs whitespace-nowrap">コピー</button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 text-center">
+          <div class="bg-[color:var(--bg)] p-3 border" style="border-color: var(--line);">
+            <p class="serif-en tabular gold text-xl">23</p>
+            <p class="text-[10px] text-[color:var(--sub)] mt-1">今月の招待</p>
+          </div>
+          <div class="bg-[color:var(--bg)] p-3 border" style="border-color: var(--line);">
+            <p class="serif-en tabular gold text-xl">26%</p>
+            <p class="text-[10px] text-[color:var(--sub)] mt-1">登録率</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHART + NOTIF -->
+    <div class="grid grid-cols-3 gap-6">
+      <div class="col-span-2 panel">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="serif-en text-lg">6-Month Performance</h2>
+          <span class="text-xs text-[color:var(--sub)]">単位：万円（コミッション確定）</span>
+        </div>
+        <div class="bars" id="bars"></div>
+        <div class="grid grid-cols-6 mt-2" id="bar-labels"></div>
+      </div>
+
+      <div class="panel">
+        <h2 class="serif-en text-lg mb-5">Notifications</h2>
+        <div class="space-y-4 text-sm">
+          <div>
+            <p class="eyebrow mb-1">MENTOR / 高橋</p>
+            <p class="text-[color:var(--sub)] text-xs leading-relaxed">先週の Birkin 25 案件、価格交渉の進め方が素晴らしかったです。次回1on1の議題に。</p>
+            <p class="text-[10px] text-[color:var(--sub)] mt-2">3時間前</p>
+          </div>
+          <hr style="border-color: var(--line);">
+          <div>
+            <p class="eyebrow mb-1">HQ ANNOUNCEMENT</p>
+            <p class="text-[color:var(--sub)] text-xs leading-relaxed">6月度の Patek Philippe 入荷予定リストを公開しました。</p>
+            <p class="text-[10px] text-[color:var(--sub)] mt-2">昨日</p>
+          </div>
+          <hr style="border-color: var(--line);">
+          <div>
+            <p class="eyebrow mb-1">TIER UP</p>
+            <p class="text-[color:var(--sub)] text-xs leading-relaxed">過去3ヶ月で 6 件成約。Bronze → Silver にランクアップしました。コミッション率 35% → 40%。</p>
+            <p class="text-[10px] text-[color:var(--sub)] mt-2">5日前</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE: REFERRALS -->
+  <section id="page-referrals" class="page px-10 py-8">
+    <div class="flex justify-between items-center mb-6">
+      <p class="text-sm text-[color:var(--sub)]">用途別に紹介リンクを発行し、招待数・案件化率を計測できます。</p>
+      <button class="btn btn-fill" onclick="alert('紹介リンクが発行されました（モック）')">+ 新規リンクを発行</button>
+    </div>
+
+    <div class="panel" style="padding: 0;">
+      <table>
+        <thead>
+          <tr>
+            <th>タグ</th>
+            <th>URL</th>
+            <th class="text-right">招待</th>
+            <th class="text-right">登録</th>
+            <th class="text-right">案件</th>
+            <th class="text-right">案件化率</th>
+            <th class="text-right">操作</th>
+          </tr>
+        </thead>
+        <tbody id="referrals-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE: PROCURE -->
+  <section id="page-procure" class="page px-10 py-8">
+    <div class="flex gap-3 mb-8">
+      <input placeholder="ブランド・型番・キーワードで検索" class="flex-1" id="procure-search" />
+      <select class="w-48">
+        <option>すべて</option>
+        <option>HIDE TOKYO 即納</option>
+        <option>GAISHO Hunter 調達</option>
+        <option>並行輸入予約</option>
+      </select>
+      <button class="btn btn-fill">検索</button>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4" id="products"></div>
+  </section>
+
+  <!-- PAGE: ORDERS -->
+  <section id="page-orders" class="page px-10 py-8">
+    <div class="flex gap-2 mb-6">
+      <button class="chip" style="border-color: var(--gold); color: var(--gold);">すべて</button>
+      <button class="chip">見積中</button>
+      <button class="chip">合意済</button>
+      <button class="chip">調達中</button>
+      <button class="chip">配送中</button>
+      <button class="chip">納品済</button>
+    </div>
+
+    <div class="panel" style="padding: 0;">
+      <table>
+        <thead>
+          <tr>
+            <th>案件ID</th>
+            <th>顧客</th>
+            <th>商品</th>
+            <th class="text-right">金額</th>
+            <th>状態</th>
+            <th>更新</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="orders-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE: COMMISSIONS -->
+  <section id="page-commissions" class="page px-10 py-8">
+    <div class="grid grid-cols-3 gap-px mb-8" style="background: var(--line);">
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">CONFIRMED (THIS MONTH)</p>
+        <p class="serif-en tabular gold text-3xl">¥445,200</p>
+      </div>
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">PENDING</p>
+        <p class="serif-en tabular text-3xl">¥184,800</p>
+      </div>
+      <div class="panel" style="border:none;">
+        <p class="eyebrow mb-3">YEAR TO DATE</p>
+        <p class="serif-en tabular gold text-3xl">¥2,189,400</p>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="serif-en text-lg">明細</h2>
+      <button class="btn btn-ghost">CSVダウンロード</button>
+    </div>
+
+    <div class="panel" style="padding:0;">
+      <table>
+        <thead>
+          <tr>
+            <th>確定日</th>
+            <th>案件ID</th>
+            <th>商品</th>
+            <th class="text-right">売上</th>
+            <th class="text-right">率</th>
+            <th class="text-right">コミッション</th>
+            <th>支払</th>
+          </tr>
+        </thead>
+        <tbody id="commissions-table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE: ACADEMY -->
+  <section id="page-academy" class="page px-10 py-8">
+    <div class="panel mb-6">
+      <p class="eyebrow mb-2">YOUR PROGRESS</p>
+      <div class="flex items-end justify-between mb-3">
+        <p class="serif-en tabular text-3xl gold">5 / 8 <span class="text-base text-[color:var(--sub)]">modules</span></p>
+        <p class="text-sm text-[color:var(--sub)]">残り24時間</p>
+      </div>
+      <div class="h-1 bg-[color:var(--line)]"><div class="h-1 bg-[color:var(--gold)]" style="width:62%"></div></div>
+    </div>
+    <div class="grid grid-cols-2 gap-4" id="academy-modules"></div>
+  </section>
+
+  <!-- PAGE: SETTINGS -->
+  <section id="page-settings" class="page px-10 py-8">
+    <div class="max-w-2xl space-y-6">
+      <div class="panel">
+        <h2 class="serif-en text-lg mb-5">プロフィール</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <div><label class="eyebrow block mb-2">表示名</label><input value="龍崎 雅子" /></div>
+          <div><label class="eyebrow block mb-2">メール</label><input value="ryuzaki@example.com" type="email" /></div>
+          <div class="col-span-2"><label class="eyebrow block mb-2">自己紹介</label><textarea rows="3">銀座の会員制ラウンジに10年勤務。Hermès・Patek・Cartier を中心にご案内しています。</textarea></div>
+        </div>
+        <button class="btn btn-fill mt-6">保存</button>
+      </div>
+
+      <div class="panel">
+        <h2 class="serif-en text-lg mb-5">支払い口座 (Stripe Connect)</h2>
+        <div class="flex items-center justify-between p-4 border" style="border-color: var(--line);">
+          <div>
+            <p class="text-sm">三井住友銀行 銀座支店</p>
+            <p class="text-xs text-[color:var(--sub)] mt-1">普通 ****1234 / 龍崎 雅子</p>
+          </div>
+          <span class="badge success">VERIFIED</span>
+        </div>
+        <button class="btn btn-ghost mt-5">Stripe ダッシュボードで変更</button>
+      </div>
+
+      <div class="panel">
+        <h2 class="serif-en text-lg mb-5">通知設定</h2>
+        <div class="space-y-3 text-sm">
+          <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" checked class="w-auto" /> 新規案件 LINE 通知</label>
+          <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" checked class="w-auto" /> 見積もり承諾通知</label>
+          <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-auto" /> 月次レポート Email</label>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2 class="serif-en text-lg mb-3" style="color: #C97A6B;">退会</h2>
+        <p class="text-sm text-[color:var(--sub)] mb-4">進行中の案件がない場合のみ退会できます。</p>
+        <button class="btn" style="border-color: #C97A6B; color: #C97A6B;">退会申請</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<script>
+  // ==== MOCK DATA ====
+  const activeOrders = [
+    { id: 'GP-2026-0142', customer: '佐久間 様', product: 'Hermès Birkin 25 / Togo / Etoupe', amount: 4_800_000, status: '見積中', updated: '5分前' },
+    { id: 'GP-2026-0141', customer: '東郷 様', product: 'Patek Philippe Nautilus 5711/1A', amount: 12_000_000, status: '合意済', updated: '2時間前' },
+    { id: 'GP-2026-0139', customer: '神田 様', product: 'Bottega Veneta Cabat / Nero', amount: 980_000, status: '調達中', updated: '昨日' },
+    { id: 'GP-2026-0138', customer: '安西 様', product: 'Rolex Daytona 116500LN', amount: 6_400_000, status: '配送中', updated: '昨日' },
+  ];
+
+  const referrals = [
+    { tag: 'クラブ・銀座経由', url: 'line.me/R/ti/p/@gaishoai?P=ryuzaki-ginza', invites: 12, signups: 8, deals: 4, rate: '50%' },
+    { tag: 'ゴルフ会員', url: 'line.me/R/ti/p/@gaishoai?P=ryuzaki-golf', invites: 6, signups: 3, deals: 1, rate: '33%' },
+    { tag: '顧客紹介', url: 'line.me/R/ti/p/@gaishoai?P=ryuzaki-ref', invites: 5, signups: 4, deals: 2, rate: '50%' },
+    { tag: '私設秘書経由', url: 'line.me/R/ti/p/@gaishoai?P=ryuzaki-pa', invites: 3, signups: 2, deals: 1, rate: '50%' },
+  ];
+
+  const products = [
+    { brand: 'Hermès', model: 'Birkin 25 Togo Etoupe PHW', cost: 3_400_000, list: 4_800_000, source: 'HIDE TOKYO 即納', stock: true },
+    { brand: 'Patek Philippe', model: 'Nautilus 5711/1A-014', cost: 8_500_000, list: 12_000_000, source: 'GAISHO Hunter 調達', stock: false },
+    { brand: 'Rolex', model: 'Daytona 116500LN White', cost: 4_500_000, list: 6_400_000, source: 'HIDE TOKYO 即納', stock: true },
+    { brand: 'Bottega Veneta', model: 'Cabat Intrecciato Nero', cost: 680_000, list: 980_000, source: 'HIDE TOKYO 即納', stock: true },
+    { brand: 'Cartier', model: 'Tank Louis Cartier WGTA0067', cost: 2_900_000, list: 3_980_000, source: 'GAISHO Hunter 調達', stock: false },
+    { brand: 'Audemars Piguet', model: 'Royal Oak 15500ST Silver', cost: 14_800_000, list: 19_800_000, source: '並行輸入予約', stock: false },
+  ];
+
+  const orders = [
+    { id: 'GP-2026-0142', customer: '佐久間 様', product: 'Hermès Birkin 25', amount: 4_800_000, status: '見積中', updated: '5分前' },
+    { id: 'GP-2026-0141', customer: '東郷 様', product: 'Patek Philippe Nautilus', amount: 12_000_000, status: '合意済', updated: '2時間前' },
+    { id: 'GP-2026-0139', customer: '神田 様', product: 'Bottega Veneta Cabat', amount: 980_000, status: '調達中', updated: '昨日' },
+    { id: 'GP-2026-0138', customer: '安西 様', product: 'Rolex Daytona', amount: 6_400_000, status: '配送中', updated: '昨日' },
+    { id: 'GP-2026-0137', customer: '神保 様', product: 'Hermès Kelly 28', amount: 5_200_000, status: '納品済', updated: '5月10日' },
+    { id: 'GP-2026-0135', customer: '東郷 様', product: 'Cartier Tank Louis', amount: 3_980_000, status: '納品済', updated: '5月8日' },
+    { id: 'GP-2026-0133', customer: '佐久間 様', product: 'Bottega Andiamo', amount: 720_000, status: '納品済', updated: '5月3日' },
+  ];
+
+  const commissions = [
+    { date: '2026-05-15', orderId: 'GP-2026-0137', product: 'Hermès Kelly 28', revenue: 5_200_000, rate: 40, amount: 312_000, paid: false },
+    { date: '2026-05-10', orderId: 'GP-2026-0135', product: 'Cartier Tank Louis', revenue: 3_980_000, rate: 40, amount: 238_800, paid: false },
+    { date: '2026-04-22', orderId: 'GP-2026-0133', product: 'Bottega Andiamo', revenue: 720_000, rate: 35, amount: 50_400, paid: true },
+    { date: '2026-04-18', orderId: 'GP-2026-0128', product: 'Rolex GMT Master II', revenue: 4_200_000, rate: 35, amount: 294_000, paid: true },
+    { date: '2026-04-05', orderId: 'GP-2026-0124', product: 'Hermès Picotin 22', revenue: 1_840_000, rate: 35, amount: 128_800, paid: true },
+    { date: '2026-03-28', orderId: 'GP-2026-0119', product: 'Patek Calatrava', revenue: 4_900_000, rate: 30, amount: 294_000, paid: true },
+  ];
+
+  const academyModules = [
+    { id: 1, title: 'ラグジュアリー入門', hours: 4, done: true },
+    { id: 2, title: '富裕層心理学', hours: 4, done: true },
+    { id: 3, title: '真贋の基礎', hours: 4, done: true },
+    { id: 4, title: '価格構造', hours: 4, done: true },
+    { id: 5, title: 'GAISHO Cloud 操作', hours: 4, done: true },
+    { id: 6, title: '個別ロープレ', hours: 8, done: false },
+    { id: 7, title: '法務・税務', hours: 4, done: false },
+    { id: 8, title: 'デビュー前テスト', hours: 8, done: false },
+  ];
+
+  const sparkBars = [38, 52, 41, 67, 49, 74]; // last 6 months commission (万円)
+  const sparkLabels = ['12月', '1月', '2月', '3月', '4月', '5月'];
+
+  // ==== RENDERERS ====
+  const fmt = (n) => '¥' + n.toLocaleString('ja-JP');
+
+  function statusBadge(s) {
+    const map = { '見積中': 'warn', '合意済': 'gold', '調達中': 'gold', '配送中': 'gold', '納品済': 'success' };
+    return `<span class="badge ${map[s] || 'muted'}">${s}</span>`;
+  }
+
+  function renderActive() {
+    document.getElementById('active-orders').innerHTML = activeOrders.map(o => `
+      <div class="flex items-center gap-4 p-4 border" style="border-color: var(--line);">
+        <span class="serif-en tabular gold text-xs w-32">${o.id}</span>
+        <div class="flex-1">
+          <p class="text-sm">${o.product}</p>
+          <p class="text-xs text-[color:var(--sub)] mt-1">${o.customer} · ${o.updated}</p>
+        </div>
+        <p class="serif-en tabular text-sm">${fmt(o.amount)}</p>
+        ${statusBadge(o.status)}
+      </div>
+    `).join('');
+  }
+
+  function renderReferrals() {
+    document.getElementById('referrals-table').innerHTML = referrals.map(r => `
+      <tr>
+        <td>${r.tag}</td>
+        <td class="text-[color:var(--sub)] text-xs">${r.url}</td>
+        <td class="text-right tabular">${r.invites}</td>
+        <td class="text-right tabular">${r.signups}</td>
+        <td class="text-right tabular gold">${r.deals}</td>
+        <td class="text-right tabular">${r.rate}</td>
+        <td class="text-right"><button class="btn btn-ghost text-xs" style="padding: 6px 12px;">コピー</button></td>
+      </tr>
+    `).join('');
+  }
+
+  function renderProducts() {
+    document.getElementById('products').innerHTML = products.map(p => {
+      const margin = p.list - p.cost;
+      const fee = Math.round(margin * 0.15);
+      const myComm = Math.round(fee * 0.4);
+      return `
+        <div class="panel">
+          <div class="aspect-square mb-4 flex items-center justify-center" style="background: var(--gold-faint); border: 1px solid var(--line);">
+            <p class="serif-en gold text-xl text-center px-4">${p.brand}</p>
+          </div>
+          <p class="serif-en text-xs gold mb-1">${p.brand}</p>
+          <p class="text-sm mb-3 leading-tight">${p.model}</p>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="badge ${p.stock ? 'success' : 'muted'}">${p.source}</span>
+          </div>
+          <div class="space-y-1 text-xs">
+            <div class="flex justify-between"><span class="text-[color:var(--sub)]">仕入れ価格</span><span class="tabular">${fmt(p.cost)}</span></div>
+            <div class="flex justify-between"><span class="text-[color:var(--sub)]">想定販売</span><span class="tabular">${fmt(p.list)}</span></div>
+            <div class="flex justify-between"><span class="gold">想定コミッション (Silver)</span><span class="tabular gold">${fmt(myComm)}</span></div>
+          </div>
+          <button class="btn btn-fill w-full mt-5 text-xs">顧客に提案</button>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderOrders() {
+    document.getElementById('orders-table').innerHTML = orders.map(o => `
+      <tr>
+        <td class="serif-en tabular text-xs gold">${o.id}</td>
+        <td>${o.customer}</td>
+        <td>${o.product}</td>
+        <td class="text-right tabular">${fmt(o.amount)}</td>
+        <td>${statusBadge(o.status)}</td>
+        <td class="text-[color:var(--sub)] text-xs">${o.updated}</td>
+        <td class="text-right"><button class="btn btn-ghost text-xs" style="padding: 6px 12px;">詳細</button></td>
+      </tr>
+    `).join('');
+  }
+
+  function renderCommissions() {
+    document.getElementById('commissions-table').innerHTML = commissions.map(c => `
+      <tr>
+        <td class="tabular text-xs">${c.date}</td>
+        <td class="serif-en tabular text-xs gold">${c.orderId}</td>
+        <td>${c.product}</td>
+        <td class="text-right tabular">${fmt(c.revenue)}</td>
+        <td class="text-right tabular">${c.rate}%</td>
+        <td class="text-right tabular gold">${fmt(c.amount)}</td>
+        <td>${c.paid ? '<span class="badge success">PAID</span>' : '<span class="badge warn">PENDING</span>'}</td>
+      </tr>
+    `).join('');
+  }
+
+  function renderAcademy() {
+    document.getElementById('academy-modules').innerHTML = academyModules.map((m, i) => `
+      <div class="panel" style="${m.done ? 'border-color: var(--gold-soft);' : ''}">
+        <div class="flex items-center justify-between mb-3">
+          <span class="serif-en tabular gold">M0${i+1}</span>
+          ${m.done ? '<span class="badge success">完了</span>' : '<span class="badge muted">未着手</span>'}
+        </div>
+        <p class="font-medium mb-2">${m.title}</p>
+        <p class="text-xs text-[color:var(--sub)]">${m.hours} 時間</p>
+        <button class="btn ${m.done ? 'btn-ghost' : 'btn-fill'} w-full mt-5 text-xs">${m.done ? '復習する' : '受講する'}</button>
+      </div>
+    `).join('');
+  }
+
+  function renderBars() {
+    const max = Math.max(...sparkBars);
+    document.getElementById('bars').innerHTML = sparkBars.map(v => `
+      <div class="bar" style="height: ${(v/max)*100}%" title="¥${(v*10000).toLocaleString()}"></div>
+    `).join('');
+    document.getElementById('bar-labels').innerHTML = sparkLabels.map(l => `<div class="bar-label">${l}</div>`).join('');
+  }
+
+  // ==== NAVIGATION ====
+  const pages = ['dashboard', 'referrals', 'procure', 'orders', 'commissions', 'academy', 'settings'];
+  const titles = {
+    dashboard: ['SECTION 01', 'ダッシュボード'],
+    referrals: ['SECTION 02', '顧客紹介リンク'],
+    procure: ['SECTION 03', '商品検索'],
+    orders: ['SECTION 04', '受発注一覧'],
+    commissions: ['SECTION 05', 'コミッション履歴'],
+    academy: ['SECTION 06', 'GAISHO Academy'],
+    settings: ['SECTION 07', '設定'],
+  };
+
+  function goto(page) {
+    pages.forEach(p => {
+      document.getElementById('page-' + p).classList.toggle('active', p === page);
+    });
+    document.querySelectorAll('.navlink').forEach(n => {
+      n.classList.toggle('active', n.dataset.page === page);
+    });
+    const [eyebrow, title] = titles[page];
+    document.getElementById('page-eyebrow').textContent = eyebrow;
+    document.getElementById('page-title').textContent = title;
+    location.hash = page;
+  }
+
+  document.querySelectorAll('.navlink').forEach(n => {
+    n.addEventListener('click', () => goto(n.dataset.page));
+  });
+
+  function copyLink() {
+    const inp = document.getElementById('line-link');
+    inp.select();
+    document.execCommand('copy');
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ コピー済';
+    btn.classList.add('copy-flash');
+    setTimeout(() => { btn.textContent = 'コピー'; btn.classList.remove('copy-flash'); }, 1500);
+  }
+
+  // ==== INIT ====
+  function tickClock() {
+    const d = new Date();
+    document.getElementById('clock').textContent = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+  }
+  tickClock(); setInterval(tickClock, 30_000);
+
+  renderActive();
+  renderReferrals();
+  renderProducts();
+  renderOrders();
+  renderCommissions();
+  renderAcademy();
+  renderBars();
+
+  // Honor hash on load
+  if (location.hash) {
+    const p = location.hash.slice(1);
+    if (pages.includes(p)) goto(p);
+  }
+</script>
+
+</body>
+</html>
